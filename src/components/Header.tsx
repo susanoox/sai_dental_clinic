@@ -48,137 +48,97 @@ const Header = () => {
 
   return (
     <motion.header
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="sticky top-0 z-50 bg-white shadow-sm"
+  initial={{ y: -100, opacity: 0 }}
+  animate={{ y: 0, opacity: 1 }}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+  className="sticky top-0 z-50 bg-white shadow-sm"
+>
+    <ContentContainer className="py-1 md:py-2">
+  <div className="container mx-auto flex items-center justify-between h-12"> 
+ 
+    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+      <Link href="/" className="text-lg font-bold text-blue-600">
+        SAI Dental  Clinic
+      </Link>
+    </motion.div>
+
+
+    <nav className="hidden md:flex items-center space-x-2">
+      {navItems.map((item, index) => (
+        <Link
+          key={item.href}
+          href={item.href}
+          className={cn(
+            "px-2 py-1 text-sm transition-colors duration-200 rounded", 
+            pathName.includes(item.href)
+              ? "text-primary bg-blue-50"
+              : "text-gray-600 hover:text-primary hover:bg-blue-50"
+          )}
+        >
+          {item.label}
+        </Link>
+      ))}
+    </nav>
+
+
+    <Button 
+      size="sm"
+      className="hidden md:block bg-blue-600 hover:bg-blue-700 text-white text-sm"
+      onClick={handleContactClick}
     >
-      <ContentContainer className="md:py-4">
-        <div className="container mx-auto flex items-center justify-between">
-          {/* Logo */}
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-            <Link href="/" className="text-2xl font-bold text-blue-600">
-              SAI Dental Clinic
-            </Link>
-          </motion.div>
+      Contact
+    </Button>
+  </div>
+</ContentContainer>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
-            {navItems.map((item, index) => (
-              <motion.div
-                key={item.href}
-                custom={index}
-                variants={navItemVariants}
-                initial="hidden"
-                animate="visible"
+
+  <AnimatePresence>
+    {isMenuOpen && (
+      <motion.nav
+        key="mobile-nav"
+        initial={{ opacity: 0, height: 0 }}
+        animate={{ opacity: 1, height: "auto" }}
+        exit={{ opacity: 0, height: 0 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className="bg-white border-t md:hidden overflow-hidden"
+      >
+        <div className="container mx-auto space-y-1 px-4 py-2"> {/* Reduced spacing */}
+          {navItems.map((item, i) => (
+            <motion.div
+              key={item.href}
+              custom={i}
+              variants={mobileItemVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <Link
+                href={item.href}
+                className="block px-3 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors duration-200 font-medium" // Smaller text and padding
+                onClick={() => setIsMenuOpen(false)}
               >
-                <Link
-                  href={item.href}
-                  className={cn(
-                    "relative gap-3 px-4 pb-2 pt-1 transition-colors duration-300",
-                    pathName.includes(item.href)
-                      ? "text-primary"
-                      : "text-black hover:text-primary/90"
-                  )}
-                >
-                  <span className="group relative space-y-1">
-                    <motion.h2
-                      whileHover={{ y: -2 }}
-                      className="text-lg font-medium transition-all duration-300 group-hover:text-primary/70"
-                    >
-                      {item.label}
-                    </motion.h2>
-                    <span
-                      className={cn(
-                        `absolute left-0 bottom-0 h-0.5 bg-primary transition-all duration-300`,
-                        pathName.includes(item.href)
-                          ? "w-full"
-                          : "w-0 group-hover:w-full"
-                      )}
-                    />
-                  </span>
-                </Link>
-              </motion.div>
-            ))}
-          </nav>
-
-          {/* Desktop Book Appointment Button */}
+                {item.label}
+              </Link>
+            </motion.div>
+          ))}
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            className="hidden md:block"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.4 }}
+            className="pt-1"
           >
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white" onClick={handleContactClick}>
+            <Button 
+              size="sm" 
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white" 
+              onClick={handleContactClick}
+            >
               Contact Us
             </Button>
           </motion.div>
-
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <motion.div
-              initial={{ rotate: 0 }}
-              animate={{ rotate: isMenuOpen ? 180 : 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              {isMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </motion.div>
-          </Button>
         </div>
-      </ContentContainer>
-
-      {/* Mobile Navigation */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.nav
-            key="mobile-nav"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            className="bg-white border-t md:hidden overflow-hidden"
-          >
-            <div className="container mx-auto space-y-2 px-4 py-4">
-              {navItems.map((item, i) => (
-                <motion.div
-                  key={item.href}
-                  custom={i}
-                  variants={mobileItemVariants}
-                  initial="hidden"
-                  animate="visible"
-                >
-                  <Link
-                    href={item.href}
-                    className="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors duration-200 font-medium"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                </motion.div>
-              ))}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.4 }}
-                className="pt-2"
-              >
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white" onClick={handleContactClick}>
-                  Contact Us
-                </Button>
-              </motion.div>
-            </div>
-          </motion.nav>
-        )}
-      </AnimatePresence>
-    </motion.header>
+      </motion.nav>
+    )}
+  </AnimatePresence>
+</motion.header>
   )
 }
 
