@@ -85,4 +85,7 @@ body::-webkit-scrollbar {
   body {
     @apply bg-background text-foreground;
   }
+  html{
+    font-size: 0.875rem;
+  }
 }
