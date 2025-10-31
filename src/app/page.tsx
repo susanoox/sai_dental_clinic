@@ -38,7 +38,7 @@ const Page = () => {
       <ServiceSection data={serviceData} pageHeading={false} />
 
 <WhyChooseUsSection data={whyChooseUsData} />
-      <FeaturesSection />
+      <FeaturesSection data={introductionData} />
     </main>
   )
 }

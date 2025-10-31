@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-
+import ContentContainer from '@/components/common-ui/containers/ContentContainer';
 import { MapPin, Phone, Mail, Facebook, Twitter, Instagram } from "lucide-react";
 
 const Footer = () => {
@@ -33,7 +33,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white">
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-12">
+      <ContentContainer className="py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           
           {/* Clinic Info */}
@@ -45,16 +45,22 @@ const Footer = () => {
           >
             <h3 className="text-2xl font-bold text-white mb-4">SAI Dental Clinic</h3>
             <p className="text-gray-300 mb-4">
-              Your smile, our passion. Providing exceptional dental care for over 70 years.
+              Your smile, our passion. Providing exceptional dental care for over 4 years.
             </p>
             <div className="space-y-2 text-gray-300">
               <div className="flex items-center">
                 <MapPin className="h-4 w-4 mr-2 text-blue-400" />
-                <span>123 Main Street, Mayiladuthurai</span>
+                <span>Kenikarai, Thiruvarur Main Road, Mayiladuthurai - 609001</span>
+              </div>
+              <div className="flex items-center">
+                <MapPin className="h-4 w-4 mr-2 text-blue-400" />
+                <span>Nidur Branch: Near Indian Overseas Bank, Main Road, Nidur - 609203</span>
               </div>
               <div className="flex items-center">
                 <Phone className="h-4 w-4 mr-2 text-blue-400" />
-                <span>+91 123-456-7890</span>
+                <span>+91 8122835737 <br/>
+                  +91 8903157201
+                </span>
               </div>
               <div className="flex items-center">
                 <Mail className="h-4 w-4 mr-2 text-blue-400" />
@@ -63,11 +69,12 @@ const Footer = () => {
             </div>
           </motion.div>
 
-          {/* Quick Links */}
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
+            className="ml-12" 
           >
             <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
             <ul className="space-y-2">
@@ -110,17 +117,15 @@ const Footer = () => {
           >
             <h4 className="text-lg font-semibold mb-4 text-white">Operating Hours</h4>
             <div className="text-gray-300 space-y-2 mb-6">
-              <div className="flex justify-between">
-                <span>Mon - Fri:</span>
-                <span>9:00 AM - 7:00 PM</span>
+              <p>@Mayiladuthurai</p>
+              <div className="flex">
+                <span>Everyday:</span>
+                <span>4:30 PM - 10:00 PM</span>
               </div>
-              <div className="flex justify-between">
-                <span>Saturday:</span>
-                <span>10:00 AM - 5:00 PM</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Sunday:</span>
-                <span className="text-red-400">Closed</span>
+              <p>@Nidur</p>
+              <div className="flex">
+                <span>Everyday:</span>
+                <span>09:00 AM - 3:00 PM</span>
               </div>
             </div>
 
@@ -139,11 +144,11 @@ const Footer = () => {
             </div>
           </motion.div>
         </div>
-      </div>
+      </ContentContainer>
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-800">
-        <div className="container mx-auto px-4 py-6">
+        <ContentContainer className="py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm">
               © {currentYear} SAI Dental Clinic. All Rights Reserved.
@@ -157,7 +162,7 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-        </div>
+        </ContentContainer>
       </div>
     </footer>
   );

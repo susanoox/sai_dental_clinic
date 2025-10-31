@@ -1,11 +1,18 @@
 "use client"
 
 import React from 'react'
-import { features } from '@/data/home/featuresection'
 import { motion } from 'framer-motion'
-import { ArrowRight, Shield, Clock, Zap, Users, Smile, Heart } from 'lucide-react'
+import ContentContainer from '@/components/common-ui/containers/ContentContainer'
+import SectionTitleText from '@/components/common-ui/contentText/SectionTitleText'
+import PageHeading from '@/components/common-ui/headers/PageHeading'
+import { IntroductionData } from '@/data/home/introduction'
+import FeatureCard from '@/components/sections/home/introduction/FeatureCard'
 
-const FeaturesSection = () => {
+interface FeaturesSectionProps {
+  data: IntroductionData;
+}
+
+const FeaturesSection = ({ data }: FeaturesSectionProps) => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -16,46 +23,29 @@ const FeaturesSection = () => {
     }
   }
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  }
-
-  const iconComponents = {
-    Shield: Shield,
-    Clock: Clock,
-    Zap: Zap,
-    Users: Users,
-    Smile: Smile,
-    Heart: Heart
-  }
+  // Override the heading for features section
+  const featuresHeading = "Delivering more than just dental care & ideas"
 
   return (
     <section className="py-16 bg-blue-600">
-      <div className="container mx-auto px-4">
+      <ContentContainer className="items-center justify-center space-y-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center"
         >
-          <div className="inline-block mb-4">
-            <span className="text-blue-200 text-sm font-semibold uppercase tracking-wider">
-              Features
-            </span>
-          </div>
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Deriving more than just dental care & ideas
-          </h1>
+          <SectionTitleText wrapperClassName='items-center'>
+            <span className="text-white">Features</span>
+          </SectionTitleText>
+          <PageHeading 
+            wrapperClassName="items-center" 
+            className="text-4xl lg:text-5xl text-white text-center mb-6"
+          >
+            {featuresHeading}
+          </PageHeading>
         </motion.div>
 
         {/* Features Grid */}
@@ -64,43 +54,33 @@ const FeaturesSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {features.map((feature, index) => {
-            const IconComponent = iconComponents[feature.icon as keyof typeof iconComponents]
-            return (
-              <motion.div
-                key={index}
-                variants={cardVariants}
-                className="bg-white/10 backdrop-blur-sm rounded-lg p-8 border border-white/20 hover:bg-white/15 transition-all duration-300"
-              >
-                <div className="flex items-center mb-4">
-                  <div className="p-3 rounded-lg bg-white/10 border border-white/20 mr-4">
-                    <IconComponent className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white">
-                    {feature.title}
-                  </h3>
-                </div>
-                <p className="text-blue-100 leading-relaxed">
-                  {feature.description}
-                </p>
-              </motion.div>
-            )
-          })}
+          {data.cards.map((card, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
+              className="bg-white/10 backdrop-blur-sm rounded-lg p-8 border border-white/20 hover:bg-white/15 transition-all duration-300"
+            >
+              
+<FeatureCard
+  icon={card.icon}
+  title={card.title}
+  description={card.description}
+  variant="feature" // ← This is crucial
+  className="items-start text-left"
+  motionProps={{
+    whileHover: { y: -4, scale: 1.01 },
+    whileTap: { scale: 0.99 }
+  }}
+/>
+            </motion.div>
+          ))}
         </motion.div>
-
-        {/* Footer CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center"
-        >
-
-        </motion.div>
-      </div>
+      </ContentContainer>
     </section>
   )
 }
