@@ -27,9 +27,9 @@ const statItemMotion: MotionProps = {
 
 export default function StatsSection({ data, className }: StatsSectionProps) {
   return (
-    <section className={cn("py-4 -mt-4", className)}>
-      <ContentContainer>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-16 max-w-6xl mx-auto"> {/* Increased gap */}
+    <div>
+      <ContentContainer className='items-center justify-center space-y-8'>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 w-full">
           {data.stats.map((stat, index) => (
             <motion.div 
               key={index} 
@@ -56,6 +56,6 @@ export default function StatsSection({ data, className }: StatsSectionProps) {
           ))}
         </div>
       </ContentContainer>
-    </section>
+    </div>
   );
 }

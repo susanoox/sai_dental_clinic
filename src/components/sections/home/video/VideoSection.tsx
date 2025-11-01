@@ -43,21 +43,20 @@ export default function VideoSection({
   };
 
   return (
-    <section className={cn("pt-8 pb-2", className)}> {/* Reduced vertical padding */}
-      <ContentContainer className="px-2"> {/* Reduced side padding */}
-        {/* Expanded Video Container */}
+    <div>
+      <ContentContainer className='items-center justify-center space-y-8'>
         <motion.div
           {...defaultMotion}
           {...motionProps}
-          className={cn("relative w-full max-w-4xl mx-auto rounded-lg overflow-hidden shadow-md bg-muted", className)} 
+          className={cn("relative w-full rounded-lg overflow-hidden shadow-lg bg-muted")} 
           whileHover={{ 
-            scale: 1.01, // Subtle hover effect
+            scale: 1.01,
             transition: { duration: 0.2 }
           }}
         >
           {src && !videoError ? (
             <div className="relative">
-              {/* Video - slightly larger */}
+              {/* Larger video - removed max-w-4xl constraint */}
               <video
                 ref={videoRef}
                 className={cn("w-full h-auto aspect-video object-cover", videoClassName)}
@@ -74,7 +73,6 @@ export default function VideoSection({
                 Your browser does not support the video tag.
               </video>
               
-              {/* Play/Pause Button Overlay */}
               <motion.div 
                 className="absolute inset-0 flex items-center justify-center cursor-pointer"
                 initial={{ opacity: 0 }}
@@ -82,14 +80,13 @@ export default function VideoSection({
                 transition={{ duration: 0.2 }}
                 onClick={togglePlay}
               >
-                {/* Subtle hover overlay */}
                 <motion.div 
                   className="absolute inset-0 bg-black/0 hover:bg-black/15 transition-all duration-200"
                 />
                 
-                {/* Compact Play/Pause Button */}
+                {/* Larger play button for bigger video */}
                 <motion.div
-                  className="relative w-14 h-14 bg-white/85 rounded-full flex items-center justify-center shadow-lg"
+                  className="relative w-16 h-16 bg-white/85 rounded-full flex items-center justify-center shadow-lg"
                   whileHover={{ 
                     scale: 1.08,
                     backgroundColor: "rgba(255, 255, 255, 0.95)"
@@ -98,7 +95,7 @@ export default function VideoSection({
                 >
                   {isPlaying ? (
                     <svg 
-                      className="w-5 h-5 text-black" 
+                      className="w-6 h-6 text-black" 
                       fill="currentColor" 
                       viewBox="0 0 24 24"
                     >
@@ -106,7 +103,7 @@ export default function VideoSection({
                     </svg>
                   ) : (
                     <svg 
-                      className="w-5 h-5 text-black ml-0.5" 
+                      className="w-6 h-6 text-black ml-0.5" 
                       fill="currentColor" 
                       viewBox="0 0 24 24"
                     >
@@ -116,14 +113,13 @@ export default function VideoSection({
                 </motion.div>
               </motion.div>
 
-              {/* Minimal Status Indicator */}
               <motion.div 
-                className="absolute top-3 right-3 bg-black/60 rounded-full px-2 py-1"
+                className="absolute top-4 right-4 bg-black/60 rounded-full px-3 py-1"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.2 }}
               >
-                <span className="text-white text-xs">
+                <span className="text-white text-sm">
                   {isPlaying ? "▶" : "⏸"}
                 </span>
               </motion.div>
@@ -136,9 +132,9 @@ export default function VideoSection({
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4 }}
               >
-                <div className="text-4xl mb-2">🎬</div>
-                <p className="text-base font-medium">Clinic Tour Video</p>
-                <p className="text-xs mt-1">
+                <div className="text-5xl mb-2">🎬</div>
+                <p className="text-lg font-medium">Clinic Tour Video</p>
+                <p className="text-sm mt-1">
                   {videoError ? "Video failed to load" : "Add video to public/images/"}
                 </p>
               </motion.div>
@@ -146,19 +142,18 @@ export default function VideoSection({
           )}
         </motion.div>
 
-        {/* Minimal caption - smaller and closer */}
         <motion.div 
-          className="text-center mt-4 max-w-md mx-auto"
+          className="text-center max-w-md mx-auto"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.2 }}
         >
-          <p className="text-muted-foreground text-xs">
+          <p className="text-muted-foreground text-sm">
             Click to control playback
           </p>
         </motion.div>
       </ContentContainer>
-    </section>
+    </div>
   );
 }

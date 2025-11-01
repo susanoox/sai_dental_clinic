@@ -10,6 +10,7 @@ import { introductionData } from '@/data/home/introduction'
 import { videoData } from '@/data/home/video' 
 import { statsData } from '@/data/home/Stats'
 import { serviceData } from '@/data/service/service'
+import { whyChooseUsData } from "@/data/home/whychooseusnew"
 
 import React from 'react'
 
@@ -36,8 +37,8 @@ const Page = () => {
       {/* Service Section */}
       <ServiceSection data={serviceData} pageHeading={false} />
 
-      <WhyChooseUsSection />
-      <FeaturesSection />
+<WhyChooseUsSection data={whyChooseUsData} />
+      <FeaturesSection data={introductionData} />
     </main>
   )
 }
