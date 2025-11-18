@@ -5,12 +5,14 @@ import StatsSection from '@/components/sections/home/stats/StatsSection'
 import ServiceSection from '@/components/sections/service/ServiceSection'
 import WhyChooseUsSection from '@/components/sections/home/homeabout/WhyChooseUs';
 import FeaturesSection from '@/components/sections/home/featuresection/FeatureSection';
+import AppointmentSection from '@/components/sections/home/appointment/AppointmentSection';
 import { heroSectionData } from '@/data/home/hero'
 import { introductionData } from '@/data/home/introduction'
 import { videoData } from '@/data/home/video' 
 import { statsData } from '@/data/home/Stats'
 import { serviceData } from '@/data/service/service'
 import { whyChooseUsData } from "@/data/home/whychooseusnew"
+import { appointmentData } from '@/data/home/appointment';
 
 import React from 'react'
 
@@ -39,6 +41,7 @@ const Page = () => {
 
 <WhyChooseUsSection data={whyChooseUsData} />
       <FeaturesSection data={introductionData} />
+      <AppointmentSection data={appointmentData} />
     </main>
   )
 }
