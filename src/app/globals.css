@@ -89,3 +89,22 @@ body::-webkit-scrollbar {
     font-size: 0.875rem;
   }
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .image-comparison-container {
+    --slider-position: 50%;
+    --after-width: 50%;
+  }
+  
+  .after-image-dynamic {
+    width: var(--after-width);
+  }
+  
+  .slider-line-dynamic {
+    left: var(--slider-position);
+  }
+}
