@@ -25,41 +25,41 @@ const SubscribeSection = ({ data }: SubscribeSectionProps) => {
   }
 
   return (
-    <section className="py-16 bg-whitle">
+    <section className="py-16 bg-white">
       <ContentContainer>
-        <div className="flex flex-col lg:flex-row items-start justify-between gap-8 w-full">
-          {/* Far Left - Heading */}
+        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 w-full max-w-6xl mx-auto">
+          {/* Left Side - Heading */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:w-auto"
+            className="flex-1 min-w-0"
           >
             <PageHeading 
               wrapperClassName="items-start" 
-              className="text-3xl lg:text-4xl text-gray-900 text-left"
+              className="text-3xl lg:text-4xl text-gray-900 text-left break-words"
             >
               Subscribe for exclusive<br />content & news
             </PageHeading>
           </motion.div>
 
-          {/* Far Right - Subscribe Form with integrated button */}
+          {/* Right Side - Subscribe Form with integrated button */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:w-auto lg:ml-auto"
+            className="flex-1 min-w-0 flex justify-end"
           >
-            <form onSubmit={handleSubmit} className="w-full">
-              <div className="relative w-80">
+            <form onSubmit={handleSubmit} className="w-full max-w-md">
+              <div className="relative">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full px-4 py-4 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-gray-400 transition-colors duration-200 pr-32"
-                  placeholder="name@email.com"
+                  placeholder="Enter your company email"
                   required
                 />
                 <motion.button
@@ -71,7 +71,7 @@ const SubscribeSection = ({ data }: SubscribeSectionProps) => {
                   Subscribe
                 </motion.button>
               </div>
-              <p className="text-gray-500 text-sm mt-2 text-right">Enter your Company Email</p>
+              <p className="text-gray-500 text-sm mt-2 text-right">name@email.com</p>
             </form>
           </motion.div>
         </div>
