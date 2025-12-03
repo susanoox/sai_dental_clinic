@@ -54,7 +54,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center">
                 <MapPin className="h-4 w-4 mr-2 text-blue-400" />
-                <span>Nidur Branch: Near Indian Overseas Bank, Main Road, Nidur - 609203</span>
+                <span>Needur Branch: Near Indian Overseas Bank, Main Road, Needur - 609203</span>
               </div>
               <div className="flex items-center">
                 <Phone className="h-4 w-4 mr-2 text-blue-400" />
@@ -122,7 +122,7 @@ const Footer = () => {
                 <span>Everyday:</span>
                 <span>4:30 PM - 10:00 PM</span>
               </div>
-              <p>@Nidur</p>
+              <p>@Needur</p>
               <div className="flex">
                 <span>Everyday:</span>
                 <span>09:00 AM - 3:00 PM</span>
