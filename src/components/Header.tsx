@@ -21,6 +21,12 @@ const Header = () => {
     { href: "/dentist", label: "Dentist" },
   ]
 
+  // Use consistent blue color (adjust based on your theme)
+  const primaryColor = "text-blue-600"
+  const primaryBg = "bg-blue-600"
+  const primaryHover = "hover:bg-blue-700"
+  const primaryBgLight = "bg-blue-50"
+
   // Animation variants
   const navItemVariants = {
     hidden: { opacity: 0, y: -20 },
@@ -50,7 +56,7 @@ const Header = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="sticky top-0 z-50 bg-white shadow-sm"
+      className="sticky top-0 z-50 bg-white shadow-none"
     >
       <ContentContainer className="py-3 md:py-4">
         <div className="container mx-auto flex items-center justify-between h-16">
@@ -61,11 +67,11 @@ const Header = () => {
               whileTap={{ scale: 0.98 }}
               className="flex items-center gap-2"
             >
-              {/* Tooth Icon with Blue Background */}
-              <div className="bg-blue-600 p-2 rounded-lg">
+              {/* Tooth Icon with consistent blue background */}
+              <div className={`${primaryBg} p-2 rounded-lg`}>
                 <FaTooth className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold text-blue-600">
+              <span className={`text-xl font-bold ${primaryColor}`}>
                 SAI Dental Clinic
               </span>
             </motion.div>
@@ -77,9 +83,9 @@ const Header = () => {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "px-4 py-2 text-base transition-colors duration-200 rounded",
+                  "px-4 py-2 text-base transition-colors duration-200 rounded flex items-center h-10",
                   pathName.includes(item.href)
-                    ? "text-primary bg-blue-50"
+                    ? `${primaryColor} ${primaryBgLight}`
                     : "text-gray-600 hover:text-primary hover:bg-blue-50"
                 )}
               >
@@ -88,13 +94,15 @@ const Header = () => {
             ))}
           </nav>
 
-          <Button 
-            size="default"
-            className="hidden md:block bg-blue-600 hover:bg-blue-700 text-white text-base px-6"
-            onClick={handleContactClick}
-          >
-            Contact
-          </Button>
+          <div className="hidden md:flex items-center">
+            <Button 
+              size="default"
+              className={`${primaryBg} ${primaryHover} text-white text-base px-6 h-10 flex items-center justify-center`}
+              onClick={handleContactClick}
+            >
+              Contact
+            </Button>
+          </div>
 
           {/* Mobile menu button */}
           <button
@@ -114,7 +122,7 @@ const Header = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="bg-white border-t md:hidden overflow-hidden"
+            className="bg-white md:hidden overflow-hidden" // REMOVED border-t here
           >
             <div className="container mx-auto space-y-2 px-4 py-4">
               {navItems.map((item, i) => (
@@ -127,7 +135,7 @@ const Header = () => {
                 >
                   <Link
                     href={item.href}
-                    className="block px-4 py-3 text-base text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors duration-200 font-medium"
+                    className={`block px-4 py-3 text-base text-gray-700 hover:${primaryBgLight} hover:${primaryColor} rounded-lg transition-colors duration-200 font-medium`}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.label}
@@ -142,7 +150,7 @@ const Header = () => {
               >
                 <Button 
                   size="default"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3"
+                  className={`w-full ${primaryBg} ${primaryHover} text-white py-3 h-12 flex items-center justify-center`}
                   onClick={handleContactClick}
                 >
                   Contact Us
