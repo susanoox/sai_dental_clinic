@@ -108,3 +108,7 @@ body::-webkit-scrollbar {
     left: var(--slider-position);
   }
 }
+
+header {
+  border-bottom: none !important;
+}

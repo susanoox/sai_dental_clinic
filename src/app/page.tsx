@@ -9,7 +9,8 @@ import TestimonialsSection from '@/components/sections/home/testimonials/Testimo
 import BlogsSection from '@/components/sections/home/blogs/BlogsSection'
 import AppointmentSection from '@/components/sections/home/appointment/AppointmentSection'
 import FAQSection from '@/components/sections/home/faq/FAQSection'
-import ContactSection from '@/components/sections/home/contact/ContactSection'
+// import ContactSection from '@/components/sections/home/contact/ContactSection'
+import ContactSection from '@/components/common-ui/contactForm/ContactSection'
 import SubscribeSection from '@/components/sections/home/subscribe/SubscribeSection'
 import { heroSectionData } from '@/data/home/hero'
 import { introductionData } from '@/data/home/introduction'
@@ -22,6 +23,7 @@ import { sampleTestimonials } from '@/data/home/testimonials'
 import { blogsData } from '@/data/home/blogs'
 import { faqData } from '@/data/home/faq'
 import { contactData } from '@/data/home/contact'
+import { contactLocations } from '@/data/contact/contact'
 import { subscribeData } from '@/data/home/subscribe'
 const Page = () => {
   return (
@@ -37,7 +39,7 @@ const Page = () => {
       <AppointmentSection data={appointmentData} />
       <BlogsSection data={blogsData} />
       <FAQSection data={faqData} />
-      <ContactSection data={contactData} />
+      <ContactSection locations={contactLocations} />
       <SubscribeSection data={subscribeData} />
     </main>
   )
