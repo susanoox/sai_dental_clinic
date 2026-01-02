@@ -30,10 +30,10 @@ export const blogsData: BlogSectionData = {
       excerpt: "Learn effective daily routines and habits that can significantly reduce your risk of developing cavities and maintain optimal oral health.",
       date: "Dec 18, 2024",
       readTime: "3 min",
-      image: "/images/blog-cavities.jpg",
+      image: "/images/blog-cavity.jpg",
       category: "Prevention",
       slug: "prevent-cavities-daily-habits",
-      author: "Dr. Sai Kumar",
+      author: "Dr. S.K.Srinivas",
       tags: ["Cavities", "Prevention", "Oral Hygiene", "Daily Habits"],
       featured: true,
       detailsPageData: [
@@ -69,10 +69,10 @@ export const blogsData: BlogSectionData = {
       excerpt: "Discover why timely replacement of missing teeth is crucial for your oral health, facial structure, and overall well-being.",
       date: "Jan 15, 2025",
       readTime: "6 min",
-      image: "/images/blog-missing-teeth.jpg",
+      image: "/images/blog-missing-tooth.jpg",
       category: "Treatment",
       slug: "replace-missing-teeth-reasons",
-      author: "Dr. Priya Sharma",
+      author: "Dr. S.K.Srinivas",
       tags: ["Missing Teeth", "Dental Implants", "Oral Health", "Restorative Dentistry"],
       detailsPageData: [
         {
@@ -109,10 +109,10 @@ export const blogsData: BlogSectionData = {
       excerpt: "Explore the surprising links between periodontal health and your body's overall health, including heart disease and diabetes.",
       date: "Jan 13, 2025",
       readTime: "6 min",
-      image: "/images/blog-gum-health.jpg",
+      image: "/images/blog-gum.jpg",
       category: "Wellness",
       slug: "gum-health-overall-wellness",
-      author: "Dr. Arjun Patel",
+      author: "Dr. S.K.Srinivas",
       tags: ["Gum Health", "Overall Wellness", "Heart Health", "Diabetes", "Oral-Systemic Health"],
       featured: true,
       detailsPageData: [
@@ -147,10 +147,10 @@ export const blogsData: BlogSectionData = {
       excerpt: "Learn why professional dental cleanings every six months are essential for maintaining optimal oral health and preventing serious dental problems.",
       date: "Feb 5, 2025",
       readTime: "4 min",
-      image: "/images/blog-dental-cleaning.jpg",
+      image: "/images/blog-cleaning.jpg",
       category: "Preventive Care",
       slug: "benefits-regular-dental-cleanings",
-      author: "Dr. Anjali Verma",
+      author: "Dr. S.K.Srinivas",
       tags: ["Dental Cleaning", "Preventive Care", "Oral Health", "Professional Care", "Hygiene"],
       detailsPageData: [
         {
@@ -188,7 +188,7 @@ export const blogsData: BlogSectionData = {
       image: "/images/blog-dental-implants.jpg",
       category: "Restorative Dentistry",
       slug: "understanding-dental-implants",
-      author: "Dr. Rajesh Malhotra",
+      author: "Dr. S.K.Srinivas",
       tags: ["Dental Implants", "Restorative Dentistry", "Tooth Replacement", "Oral Surgery", "Prosthodontics"],
       detailsPageData: [
         {
@@ -223,10 +223,10 @@ export const blogsData: BlogSectionData = {
       excerpt: "Compare the effectiveness, safety, and results of professional teeth whitening versus over-the-counter products to make an informed decision.",
       date: "Feb 20, 2025",
       readTime: "5 min",
-      image: "/images/blog-teeth-whitening.jpg",
+      image: "/images/blog-tooth-cleaning.jpg",
       category: "Cosmetic Dentistry",
       slug: "teeth-whitening-comparison",
-      author: "Dr. Sneha Kapoor",
+      author: "Dr. S.K.Srinivas",
       tags: ["Teeth Whitening", "Cosmetic Dentistry", "Smile Enhancement", "Dental Aesthetics", "Whitening Treatments"],
       featured: true,
       detailsPageData: [

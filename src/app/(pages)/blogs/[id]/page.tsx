@@ -7,23 +7,62 @@ import PageHeading from '@/components/common-ui/headers/PageHeading'
 import SubscribeSection from '@/components/sections/home/subscribe/SubscribeSection'
 import { contactLocations } from '@/data/contact/contact'
 import { subscribeData } from '@/data/home/subscribe'
-import { blogsData } from '@/data/blog/blogs'
-import { FaCalendar, FaUser, FaClock, FaShareAlt } from 'react-icons/fa'
+import { blogsData, getBlogById, BlogDetailData } from '@/data/blog/blogs'
+import { FaCalendar, FaUser, FaClock, FaShareAlt, FaCheck } from 'react-icons/fa'
 import { useParams } from 'next/navigation'
 import { notFound } from 'next/navigation'
-import { BlogCardData } from '@/components/sections/blogs/BlogCard'
 import Link from 'next/link'
+
 export default function BlogDetailPage() {
   const params = useParams()
   const blogId = params.id as string
   
-  // Find the blog by ID
-  const blogs: BlogCardData[] = blogsData.blogs
-  const blog = blogs.find(b => b.id.toString() === blogId)
+  // Find the blog by ID using the helper function
+  const blog = getBlogById(blogId)
 
   // If blog not found, show 404
   if (!blog) {
     notFound()
+  }
+
+  // Get featured checklist if exists
+  const featureChecklist = (blog as BlogDetailData).featureChecklist || []
+  
+  // Get details page data if exists
+  const detailsData = (blog as BlogDetailData).detailsPageData || []
+
+  // Function to render description paragraphs with proper formatting
+  const renderDescription = (description: string[]) => {
+    return description.map((paragraph, index) => {
+      // Check if it's a bold paragraph starting with **
+      if (paragraph.startsWith('**') && paragraph.includes('**:')) {
+        const [boldPart, ...rest] = paragraph.split(':')
+        const boldText = boldPart.replace(/\*\*/g, '')
+        const normalText = rest.join(':')
+        return (
+          <div key={index} className="mb-4">
+            <strong className="text-lg text-gray-800 block mb-1">{boldText}:</strong>
+            <p className="text-gray-600 leading-relaxed">{normalText}</p>
+          </div>
+        )
+      }
+      // Check if it's a numbered list item
+      else if (/^\d+\./.test(paragraph)) {
+        return (
+          <div key={index} className="mb-3 ml-6">
+            <p className="text-gray-600 leading-relaxed">{paragraph}</p>
+          </div>
+        )
+      }
+      // Regular paragraph
+      else {
+        return (
+          <div key={index} className="mb-6">
+            <p className="text-gray-600 leading-relaxed text-base">{paragraph}</p>
+          </div>
+        )
+      }
+    })
   }
 
   return (
@@ -54,7 +93,27 @@ export default function BlogDetailPage() {
               <FaClock className="w-4 h-4" />
               <span>{blog.readTime || "5 min read"}</span>
             </div>
+            {(blog as BlogDetailData).author && (
+              <div className="flex items-center gap-2">
+                <FaUser className="w-4 h-4" />
+                <span>{(blog as BlogDetailData).author}</span>
+              </div>
+            )}
           </div>
+
+          {/* Tags */}
+          {(blog as BlogDetailData).tags && (
+            <div className="flex flex-wrap justify-center gap-2 mb-4">
+              {(blog as BlogDetailData).tags?.map((tag, index) => (
+                <span 
+                  key={index}
+                  className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-medium"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Featured Image */}
@@ -73,73 +132,99 @@ export default function BlogDetailPage() {
         {/* Blog Content */}
         <div className="max-w-4xl mx-auto">
           <div className="prose prose-lg max-w-none mb-12">
-            <ContentText children={blog.excerpt || ""} />
+            {/* Excerpt as introduction */}
+            <div className="mb-10">
+              <p className="text-xl font-medium text-gray-700 leading-relaxed">
+                {blog.excerpt || ""}
+              </p>
+            </div>
             
-            {/* Additional content - you can extend this */}
-            <ContentText children="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." />
-            
-            <h2 className="text-2xl font-bold text-gray-800 mt-8 mb-4">
-              Why This Matters for Your Dental Health
-            </h2>
-            <ContentText children="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
-            
-            <h2 className="text-2xl font-bold text-gray-800 mt-8 mb-4">
-              Practical Tips and Recommendations
-            </h2>
-            <ContentText children="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo." />
+            {/* Dynamic sections from detailsPageData */}
+            {detailsData.map((section, index) => (
+              <div key={index} className="mb-10">
+                <h2 className="text-3xl font-bold text-gray-900 mt-10 mb-6">
+                  {section.title}
+                </h2>
+                <div className="space-y-4">
+                  {renderDescription(section.description)}
+                </div>
+              </div>
+            ))}
+
+            {/* Feature Checklist */}
+            {featureChecklist.length > 0 && (
+              <div className="mt-12 mb-10">
+                <h2 className="text-3xl font-bold text-gray-900 mt-10 mb-6">
+                  Key Takeaways
+                </h2>
+                <div className="bg-blue-50 rounded-xl p-8 border border-blue-100">
+                  <ul className="space-y-4">
+                    {featureChecklist.map((item, index) => (
+                      <li key={index} className="flex items-start gap-4">
+                        <FaCheck className="w-6 h-6 text-blue-600 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-700 text-lg leading-relaxed">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Share Section */}
-    <div className="py-8 border-t border-b border-gray-200 mb-12">
-    <div className="flex items-center justify-between">
-        <span className="text-gray-700 font-semibold">Share this article:</span>
-        <div className="flex items-center gap-4">
-        <button 
-            className="p-2 rounded-full bg-blue-100 text-blue-600 hover:bg-blue-200 transition-colors duration-200"
-            onClick={() => {
-            // Add share functionality
-            if (navigator.share) {
-                navigator.share({
-                title: blog.title,
-                text: blog.excerpt,
-                url: window.location.href,
-                });
-            } else {
-                // Fallback: Copy to clipboard
-                navigator.clipboard.writeText(window.location.href);
-                alert('Link copied to clipboard!');
-            }
-            }}
-            aria-label="Share this article"
-            title="Share this article on social media"
-        >
-            <FaShareAlt className="w-5 h-5" aria-hidden="true" />
-            <span className="sr-only">Share</span>
-        </button>
-        {/* Add more social share buttons as needed */}
-        </div>
-    </div>
-    </div>
+          <div className="py-8 border-t border-b border-gray-200 mb-12">
+            <div className="flex items-center justify-between">
+              <span className="text-gray-700 font-semibold text-lg">Share this article:</span>
+              <div className="flex items-center gap-4">
+                <button 
+                  className="p-3 rounded-full bg-blue-100 text-blue-600 hover:bg-blue-200 transition-colors duration-200"
+                  onClick={() => {
+                    // Add share functionality
+                    if (navigator.share) {
+                      navigator.share({
+                        title: blog.title,
+                        text: blog.excerpt,
+                        url: window.location.href,
+                      });
+                    } else {
+                      // Fallback: Copy to clipboard
+                      navigator.clipboard.writeText(window.location.href);
+                      alert('Link copied to clipboard!');
+                    }
+                  }}
+                  aria-label="Share this article"
+                  title="Share this article on social media"
+                >
+                  <FaShareAlt className="w-6 h-6" aria-hidden="true" />
+                  <span className="sr-only">Share</span>
+                </button>
+              </div>
+            </div>
+          </div>
 
           {/* Related Articles */}
           <div className="mb-16">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">Related Articles</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {blogs
+            <h3 className="text-2xl font-bold text-gray-800 mb-8">Related Articles</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {blogsData.blogs
                 .filter(b => b.id.toString() !== blogId)
                 .slice(0, 3)
-                .map((relatedBlog: BlogCardData, index: number) => (
+                .map((relatedBlog, index: number) => (
                   <Link 
                     key={relatedBlog.id}
                     href={`/blogs/${relatedBlog.id}`}
-                    className="block p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-colors"
+                    className="block p-6 border border-gray-200 rounded-xl hover:border-blue-300 hover:bg-blue-50 transition-all duration-300 hover:shadow-lg"
                   >
-                    <h4 className="font-semibold text-gray-800 mb-2">
+                    <h4 className="font-semibold text-gray-800 mb-3 text-lg">
                       {relatedBlog.title}
                     </h4>
-                    <p className="text-sm text-gray-600 line-clamp-2">
+                    <p className="text-gray-600 line-clamp-3 mb-4">
                       {relatedBlog.excerpt}
                     </p>
+                    <div className="mt-3 flex items-center justify-between text-sm text-gray-500">
+                      <span className="font-medium">{relatedBlog.category}</span>
+                      <span>{relatedBlog.readTime}</span>
+                    </div>
                   </Link>
                 ))}
             </div>
