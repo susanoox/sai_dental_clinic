@@ -1,19 +1,23 @@
-import { ContactForm } from '@/components/common-ui/contactForm/ContactForm'
-import { ContactInfoList } from '@/components/common-ui/contactForm/ContactInfoList'
 import ContactSection from '@/components/common-ui/contactForm/ContactSection'
-import ContentContainer from '@/components/common-ui/containers/ContentContainer'
 import ServiceSection from '@/components/sections/service/ServiceSection'
+import SubscribeSection from '@/components/sections/home/subscribe/SubscribeSection'
 import { contactLocations } from '@/data/contact/contact'
 import { serviceData } from '@/data/service/service'
-import React from 'react'
+import { subscribeData } from '@/data/home/subscribe'
 
-const page = () => {
+export default function ServicePage() {
   return (
-    <div>
-      <ServiceSection data={serviceData} animate={{ animate: { opacity: 1, y: 0 } }} />
+    <div className="min-h-screen">
+      {/* Make sure ServiceSection has pageHeading={true} */}
+      <ServiceSection 
+        data={serviceData} 
+        pageHeading={true}
+        animate={{ animate: { opacity: 1, y: 0 } }} 
+      />
+      
       <ContactSection locations={contactLocations} />
+      
+      <SubscribeSection data={subscribeData} />
     </div>
   )
 }
-
-export default page

@@ -6,13 +6,10 @@ import ContentContainer from '@/components/common-ui/containers/ContentContainer
 import SectionTitleText from '@/components/common-ui/contentText/SectionTitleText'
 import PageHeading from '@/components/common-ui/headers/PageHeading'
 import BlogCard, { BlogCardData } from './BlogCard'
-
-export interface BlogsSectionData {
-  blogs: BlogCardData[]
-}
+import { BlogSectionData } from '@/data/blog/blogs' // Import the new interface
 
 interface BlogsSectionProps {
-  data: BlogsSectionData
+  data: BlogSectionData // Change from BlogsSectionData to BlogSectionData
 }
 
 const BlogsSection = ({ data }: BlogsSectionProps) => {
@@ -57,7 +54,7 @@ const BlogsSection = ({ data }: BlogsSectionProps) => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Blogs
+              {data.sectionTitle || 'Blogs'}
             </motion.span>
           </SectionTitleText>
           <motion.div
@@ -70,7 +67,7 @@ const BlogsSection = ({ data }: BlogsSectionProps) => {
               wrapperClassName="items-center" 
               className="text-4xl lg:text-5xl text-gray-900 text-center mb-6"
             >
-              Stay updated with dental wellness tips
+              {data.heading}
             </PageHeading>
           </motion.div>
           <motion.p 
@@ -80,7 +77,7 @@ const BlogsSection = ({ data }: BlogsSectionProps) => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            Discover the latest insights, tips, and news about dental health and wellness.
+            {data.description}
           </motion.p>
         </motion.div>
 
@@ -95,7 +92,16 @@ const BlogsSection = ({ data }: BlogsSectionProps) => {
           {data.blogs.map((blog, index) => (
             <BlogCard
               key={blog.id}
-              data={blog}
+              data={{
+                id: blog.id,
+                title: blog.title,
+                excerpt: blog.excerpt,
+                date: blog.date,
+                readTime: blog.readTime,
+                image: blog.image,
+                category: blog.category,
+                slug: blog.slug
+              }}
               motionProps={{
                 initial: { opacity: 0, y: 50 },
                 whileInView: { opacity: 1, y: 0 },
@@ -116,7 +122,7 @@ const BlogsSection = ({ data }: BlogsSectionProps) => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center"
         >
-
+          {/* Add a "View All Blogs" button if you have a dedicated blogs page */}
         </motion.div>
       </ContentContainer>
     </section>
@@ -124,3 +130,6 @@ const BlogsSection = ({ data }: BlogsSectionProps) => {
 }
 
 export default BlogsSection
+
+// Export the old interface for backward compatibility
+export type { BlogCardData } from './BlogCard'
