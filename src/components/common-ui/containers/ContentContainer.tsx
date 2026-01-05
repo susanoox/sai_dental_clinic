@@ -1,21 +1,23 @@
 import { cn } from '@/lib/utils';
-import React, { Children } from 'react'
+import React from 'react'
 
 type ContentContainerProps = {
     children: React.ReactNode;
     className?: string;
- };
- const ContentContainer = ({ children, className }: ContentContainerProps) => {
+};
+
+const ContentContainer = ({ children, className }: ContentContainerProps) => {
     return (
        <div
           className={cn(
-             "flex flex-col gap-4 px-3 w-full font-onest lg:40 xl:px-48 md:py-8 mx-auto container ",
+             "container flex flex-col gap-4 w-full mx-auto font-onest py-4 md:py-8",
+             // Using Tailwind's container class which handles responsive padding
              className
           )}
        >
           {children}
        </div>
     );
- };
+};
 
 export default ContentContainer
