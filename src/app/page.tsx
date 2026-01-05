@@ -11,7 +11,7 @@ import AppointmentSection from '@/components/sections/home/appointment/Appointme
 import FAQSection from '@/components/sections/home/faq/FAQSection'
 // import ContactSection from '@/components/sections/home/contact/ContactSection'
 import ContactSection from '@/components/common-ui/contactForm/ContactSection'
-import SubscribeSection from '@/components/sections/home/subscribe/SubscribeSection'
+import SubscribeSection from '@/components/sections/subscribe/SubscribeSection'
 import { heroSectionData } from '@/data/home/hero'
 import { introductionData } from '@/data/home/introduction'
 import { videoData } from '@/data/home/video' 

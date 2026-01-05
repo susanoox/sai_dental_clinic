@@ -14,14 +14,14 @@ interface AboutHeroProps {
 const AboutHero = ({ data }: AboutHeroProps) => {
   return (
     <ContentContainer className="py-16 md:py-24">
-      <div className="max-w-4xl mx-auto text-center space-y-6">
+      <div className="max-w-5xl mx-auto text-center space-y-6">
         {/* "About us" - Section Title */}
-        <div className="text-blue-600 font-medium text-lg">
+        <div className="text-blue-600 font-medium text-xl">
           {data.title}
         </div>
         
         {/* "A modern dental care home for families" - Main Heading */}
-        <PageHeading className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+        <PageHeading className="text-6xl md:text-5xl lg:text-7xl font-bold text-gray-900 leading-tight">
           {data.subtitle}
         </PageHeading>
         

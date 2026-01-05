@@ -1,7 +1,7 @@
 "use client"
 
 import ContactSection from '@/components/common-ui/contactForm/ContactSection'
-import SubscribeSection from '@/components/sections/home/subscribe/SubscribeSection'
+import SubscribeSection from '@/components/sections/subscribe/SubscribeSection'
 import { contactLocations } from '@/data/contact/contact'
 import { subscribeData } from '@/data/home/subscribe'
 import { blogsData } from '@/data/blog/blogs'

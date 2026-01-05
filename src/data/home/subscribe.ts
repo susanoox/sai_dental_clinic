@@ -1,4 +1,4 @@
-import { SubscribeSectionData } from '@/components/sections/home/subscribe/SubscribeSection'
+import { SubscribeSectionData } from '@/components/sections/subscribe/SubscribeSection'
 
 export const subscribeData: SubscribeSectionData = {
   companyName: "Dentify",

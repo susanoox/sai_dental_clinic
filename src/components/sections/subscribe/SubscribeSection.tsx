@@ -3,7 +3,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import ContentContainer from '@/components/common-ui/containers/ContentContainer'
-import SectionTitleText from '@/components/common-ui/contentText/SectionTitleText'
 import PageHeading from '@/components/common-ui/headers/PageHeading'
 
 export interface SubscribeSectionData {
@@ -26,8 +25,8 @@ const SubscribeSection = ({ data }: SubscribeSectionProps) => {
 
   return (
     <section className="py-12 md:py-16 bg-white w-full">
-      <ContentContainer className="!px-0 sm:!px-4"> {/* Override padding */}
-        <div className="w-full px-4 sm:px-0"> {/* Add mobile padding */}
+      <ContentContainer> {/* Remove the override - use default padding */}
+        <div className="w-full"> {/* Remove mobile padding override */}
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 w-full">
             {/* Left Side - Heading */}
             <motion.div

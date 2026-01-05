@@ -1,6 +1,6 @@
 import ContactSection from '@/components/common-ui/contactForm/ContactSection'
 import ServiceSection from '@/components/sections/service/ServiceSection'
-import SubscribeSection from '@/components/sections/home/subscribe/SubscribeSection'
+import SubscribeSection from '@/components/sections/subscribe/SubscribeSection'
 import { contactLocations } from '@/data/contact/contact'
 import { serviceData } from '@/data/service/service'
 import { subscribeData } from '@/data/home/subscribe'

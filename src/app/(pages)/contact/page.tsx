@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import ContentContainer from "@/components/common-ui/containers/ContentContainer"
 import FAQSection from '@/components/sections/home/faq/FAQSection'
-import SubscribeSection from '@/components/sections/home/subscribe/SubscribeSection'
+import SubscribeSection from '@/components/sections/subscribe/SubscribeSection'
 
 import { faqData } from '@/data/home/faq'
 

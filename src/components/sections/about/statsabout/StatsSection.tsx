@@ -46,6 +46,7 @@ const VideoModal = ({ isOpen, onClose, videoSrc }: {
 
 interface StatsAboutProps {
   statsData: StatsData;
+  videoSrc?: string; // Add videoSrc as optional prop
 }
 
 // Stats item with built-in animation
@@ -82,10 +83,11 @@ const StatsItem = ({ number, label, index }: {
   )
 }
 
-const StatsSection = ({ statsData }: StatsAboutProps) => {
+const StatsSection = ({ statsData, videoSrc }: StatsAboutProps) => {
   const [isVideoOpen, setIsVideoOpen] = useState(false)
   
-  const videoPath = "/videos/clinic-tour.mp4"
+  // Use the provided videoSrc or default to aboutVideoData
+  const videoPath = videoSrc || "/images/samplevideo.mp4"; // Assuming it's .mp4
 
   // All 6 stats
   const allStats = [
