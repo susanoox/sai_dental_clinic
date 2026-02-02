@@ -65,14 +65,37 @@ export default function DentistDetailPage() {
                       {dentist.phone}
                     </a>
                   </div>
-                  <div className="flex items-start gap-3 text-gray-600">
-                    <FaMapMarkerAlt className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                    <span className="break-words">{dentist.location}</span>
+                    <div className="flex items-start gap-3 text-gray-600">
+                    <FaMapMarkerAlt className="w-5 h-5 text-blue-500 flex-shrink-0 mt-1" />
+
+                    <div className="space-y-4">
+                      {dentist.locations.map((loc, index) => (
+                      <div key={index} className="space-y-1">
+                        <p className="font-semibold">{loc.city}</p>
+                        <p>{loc.address}</p>
+
+                        <div className="flex items-center gap-2 text-sm">
+                          <FaCalendarAlt className="w-4 h-4 text-blue-500" />
+                          <span>{loc.timing}</span>
+                        </div>
+
+                        {loc.mapsLink && (
+                          <a
+                            href={loc.mapsLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:underline text-sm"
+                          >
+                            View on Google Maps
+                          </a>
+                        )}
+                      </div>
+                    ))}
+
+                    </div>
                   </div>
-                  <div className="flex items-start gap-3 text-gray-600">
-                    <FaCalendarAlt className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                    <span className="break-words">{dentist.availability}</span>
-                  </div>
+
+
                 </div>
                 <button className="mt-6 w-full px-4 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-300">
                   Book Appointment
@@ -206,8 +229,6 @@ export default function DentistDetailPage() {
         </motion.div>
       </ContentContainer>
 
-      <ContactSection locations={contactLocations} />
-      <SubscribeSection data={subscribeData} />
     </>
   )
 }

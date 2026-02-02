@@ -140,8 +140,6 @@ export default function BlogsPage() {
         </div>
       </section>
 
-      <ContactSection locations={contactLocations} />
-      <SubscribeSection data={subscribeData} />
     </>
   )
 }

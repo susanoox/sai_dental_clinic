@@ -285,7 +285,7 @@ export default function ContactPage() {
         </div>
       </ContentContainer>
       <FAQSection data={faqData} />
-      <SubscribeSection data={subscribeData} />
+
     </motion.div>
   )
 }

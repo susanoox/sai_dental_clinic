@@ -27,8 +27,7 @@ const AboutPage = () => {
 
         <VideoSection src={videoData.videoUrl} poster={videoData.videoPoster} />
 
-      <ContactSection locations={contactLocations} />
-      <SubscribeSection data={subscribeData} />
+
     </main>
   )
 }

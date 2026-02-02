@@ -232,8 +232,6 @@ export default function BlogDetailPage() {
         </div>
       </ContentContainer>
 
-      <ContactSection locations={contactLocations} />
-      <SubscribeSection data={subscribeData} />
     </>
   )
 }

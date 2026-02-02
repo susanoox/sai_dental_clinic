@@ -98,32 +98,35 @@ const DentistsSection = ({ data, showViewAll = true }: DentistsSectionProps) => 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full"
+          className="grid grid-cols-1 gap-8 w-full justify-center"
         >
-          {data.dentists.map((dentist, index) => (
-            <DentistCard
-              key={dentist.id}
-              data={{
-                id: dentist.id,
-                name: dentist.name,
-                designation: dentist.designation,
-                image: dentist.image,
-                slug: dentist.slug,
-                experience: dentist.experience,
-                education: dentist.education,
-                featured: dentist.featured
-              }}
-              motionProps={{
-                initial: { opacity: 0, y: 50 },
-                whileInView: { opacity: 1, y: 0 },
-                viewport: { once: true, amount: 0.25 },
-                transition: { duration: 0.6, ease: "easeOut", delay: index * 0.1 },
-                whileHover: { y: -8, scale: 1.02 },
-                whileTap: { scale: 0.98 }
-              }}
-            />
-          ))}
+          {data.dentists
+            .filter(dentist => dentist.id === 1)
+            .map((dentist, index) => (
+              <DentistCard
+                key={dentist.id}
+                data={{
+                  id: dentist.id,
+                  name: dentist.name,
+                  designation: dentist.designation,
+                  image: dentist.image,
+                  slug: dentist.slug,
+                  experience: dentist.experience,
+                  education: dentist.education,
+                  featured: dentist.featured
+                }}
+                motionProps={{
+                  initial: { opacity: 0, y: 50 },
+                  whileInView: { opacity: 1, y: 0 },
+                  viewport: { once: true, amount: 0.25 },
+                  transition: { duration: 0.6, ease: "easeOut" },
+                  whileHover: { y: -8, scale: 1.02 },
+                  whileTap: { scale: 0.98 }
+                }}
+              />
+            ))}
         </motion.div>
+
       </ContentContainer>
     </section>
   )
