@@ -26,19 +26,19 @@ export const introductionData = {
       icon: "Wrench",
       title: "Personalized care",
       description:
-        "Every smile is unique, and our treatments are tailored to meet your specific needs. From preventive care to advanced treatments."
+        "Every smile is unique, and treatments are carefully tailored to your specific needs — from preventive care to advanced dental procedures."
     },
     {
       icon: "Box",
       title: "Advanced technology",
       description:
-        "We use state-of-the-art tools and techniques to deliver precise, efficient, and effective treatments."
+        "Modern, state-of-the-art tools and techniques are used to ensure precise, comfortable, and effective treatments."
     },
     {
       icon: "Heart",
-      title: "Team that cares",
+      title: "A Dentist Who Cares",
       description:
-        "Our dedicated team combines expertise with compassion, ensuring you feel supported at every step."
+        "You’ll be treated by a dentist who listens, explains, and truly cares about your comfort and smile."
     }
   ]
 }

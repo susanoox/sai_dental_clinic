@@ -11,44 +11,45 @@ export interface AppointmentData {
   heading: string;
   items: AppointmentItem[];
 }
-
 export const appointmentData: AppointmentData = {
-  sectionTitle: 'How it works',
-  heading: 'Schedule your visit',
+  sectionTitle: "How it works",
+  heading: "Schedule your visit",
   items: [
     {
       id: 1,
-      image: '/images/heroSectionImage1.jpg', // You'll need to add this image
-      title: 'Book an appointment',
-      description: 'Book an appointment at your convenience through our easy scheduling system, and we\'ll ensure a hassle-free experience from the start.',
+      image: "/images/heroSectionImage1.jpg",
+      title: "Book an Appointment",
+      description:
+        "Schedule your appointment easily by phone or online at a time that works best for you.",
       features: [
-        'Contact us',
-        'See All Templates', 
-        'Made in Framer'
+        "Quick & easy booking",
+        "Flexible appointment slots",
+        "Friendly assistance"
       ]
     },
-    // We'll add 2 more items later for the 3 repetitions
     {
       id: 2,
-      image: '/images/heroSectionImage1.jpg',
-      title: 'Consultation',
-      description: 'Meet our dental experts for a comprehensive consultation and personalized treatment plan.',
+      image: "/images/heroSectionImage1.jpg",
+      title: "Consultation",
+      description:
+        "Get a thorough dental check-up and a personalized treatment plan tailored to your needs.",
       features: [
-        'Professional assessment',
-        'Treatment planning',
-        'Cost estimation'
+        "Detailed dental examination",
+        "Clear treatment explanation",
+        "Transparent cost guidance"
       ]
     },
     {
       id: 3,
-      image: '/images/heroSectionImage1.jpg',
-      title: 'Treatment',
-      description: 'Receive top-quality dental care with our advanced technology and experienced team.',
+      image: "/images/heroSectionImage1.jpg",
+      title: "Treatment",
+      description:
+        "Receive high-quality dental care using modern technology in a comfortable environment.",
       features: [
-        'Advanced equipment',
-        'Expert care',
-        'Follow-up support'
+        "Advanced dental technology",
+        "Gentle & precise care",
+        "Post-treatment guidance"
       ]
     }
   ]
-};
+}

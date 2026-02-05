@@ -4,7 +4,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import ContentContainer from '@/components/common-ui/containers/ContentContainer';
-import { MapPin, Phone, Mail, Facebook, Twitter, Instagram } from "lucide-react";
+import { MapPin, Phone, Mail, Facebook, Twitter, Instagram, Target } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -25,9 +25,9 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
+    { icon: Facebook, href: "https://www.facebook.com/saidentalclinic1/", label: "Facebook"},
     { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Instagram, href: "https://www.instagram.com/sai.dental_clinic/", label: "Instagram" },
   ];
 
   return (
@@ -122,7 +122,7 @@ const Footer = () => {
                 <span>Everyday:</span>
                 <span>4:30 PM - 10:00 PM</span>
               </div>
-              <p>@Needur</p>
+              <p>@Needur Branch</p>
               <div className="flex">
                 <span>Everyday:</span>
                 <span>09:00 AM - 3:00 PM</span>
@@ -136,6 +136,8 @@ const Footer = () => {
                   key={social.label}
                   href={social.href}
                   whileHover={{ scale: 1.1, y: -2 }}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   className="bg-gray-800 p-2 rounded-lg hover:bg-blue-600 transition-colors duration-200"
                 >
                   <social.icon className="h-5 w-5" />

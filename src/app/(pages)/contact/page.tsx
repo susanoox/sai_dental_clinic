@@ -72,7 +72,7 @@ export default function ContactPage() {
               Contact SAI Dental Clinic
             </h1>
             <p className="text-xl opacity-90 max-w-2xl mx-auto">
-              Schedule your appointment or get in touch with our dental experts today
+              Schedule your appointment or get in touch with our dentist today
             </p>
           </motion.div>
         </ContentContainer>
@@ -97,9 +97,9 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">Phone Numbers</h3>
-                    <p className="text-gray-600 mt-1">+1 (555) 123-4567</p>
-                    <p className="text-gray-600">+1 (555) 987-6543</p>
-                    <p className="text-sm text-gray-500 mt-2">Mon-Sat, 8AM-8PM</p>
+                    <p className="text-gray-600 mt-1">+91 8122835737</p>
+                    <p className="text-gray-600">+91 8903157201</p>
+                    {/*<p className="text-sm text-gray-500 mt-2">Sun-Sat, 9:30AM-3PM, 4:30PM-10.00PM</p>*/}
                   </div>
                 </div>
 
@@ -108,11 +108,16 @@ export default function ContactPage() {
                     <FaMapMarkerAlt className="w-5 h-5 text-blue-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">Clinic Address</h3>
+                    <h3 className="font-semibold text-gray-900">Clinic Addresses</h3>
                     <address className="text-gray-600 mt-1 not-italic">
-                      123 Dental Avenue<br />
-                      Health District<br />
-                      San Francisco, CA 94107
+                      I. Kenikarai,<br />
+                      Thiruvarur Main Road,<br />
+                      Mayiladuthurai - 609001
+                    </address>
+                    <address className="text-gray-600 mt-1 not-italic">
+                      II. Needur Branch: Near Indian Overseas Bank,<br />
+                      Main Road,
+                      Needur - 609203
                     </address>
                   </div>
                 </div>
@@ -136,17 +141,17 @@ export default function ContactPage() {
                     <h3 className="font-semibold text-gray-900">Working Hours</h3>
                     <div className="text-gray-600 mt-1 space-y-1">
                       <p className="flex justify-between">
-                        <span>Mon - Fri:</span>
-                        <span>9:00 AM - 7:00 PM</span>
+                        <span>@Kenikarai Sun - Sat:</span>
+                        <span>4:30 PM - 10:00 PM</span>
                       </p>
                       <p className="flex justify-between">
-                        <span>Saturday:</span>
-                        <span>9:00 AM - 4:00 PM</span>
+                        <span>@Needur Sun - Sat</span>
+                        <span>9:30 AM - 3:00 PM</span>
                       </p>
-                      <p className="flex justify-between">
+                      {/*<p className="flex justify-between">
                         <span>Sunday:</span>
                         <span>Emergency Only</span>
-                      </p>
+                      </p>*/}
                     </div>
                   </div>
                 </div>
