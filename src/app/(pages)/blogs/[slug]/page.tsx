@@ -10,18 +10,19 @@
       import { getBlogBySlug, getAllBlogs } from "@/lib/mdx"
 
       interface PageProps {
-        params: {
-          slug: string
-        }
-      }
+        params: Promise<{ slug: string }>}
 
       export default async function BlogDetailPage({ params }: PageProps) {
-        const blog = await getBlogBySlug(params.slug)
+  const { slug } = await params
+
+  const blog = await getBlogBySlug(slug)
+
 
         if (!blog) notFound()
 
-        const relatedBlogs = getAllBlogs()
-          .filter(b => b.slug !== params.slug)
+        const relatedBlogs = (await getAllBlogs())
+          .filter(b => b.slug !== slug)
+
           .slice(0, 3)
 
         return (
@@ -58,17 +59,21 @@
               </div>
 
               {blog.tags && (
-                <div className="flex flex-wrap justify-center gap-2 mb-4">
-                  {blog.tags.map(tag => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-medium"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
+              <div className="flex flex-wrap justify-center gap-3 mt-6">
+                {blog.tags.map(tag => (
+                  <span
+                    key={tag}
+                    className="px-5 py-2 rounded-full text-sm font-semibold
+                    bg-blue-50 text-blue-700
+                    border border-blue-100
+                    hover:bg-blue-100 transition"
+                  >
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            )}
+
             </div>
 
             {blog.image && (
@@ -84,7 +89,18 @@
             )}
 
             <div className="max-w-4xl mx-auto">
-              <div className="prose prose-lg max-w-none mb-12 text-gray-800">
+              <div className="prose prose-lg md:prose-xl max-w-none mb-12
+                prose-headings:font-semibold
+                prose-headings:text-gray-900
+                prose-p:text-gray-700
+                prose-p:leading-relaxed
+                prose-ul:space-y-2
+                prose-li:marker:text-blue-500
+                prose-a:text-blue-600
+                prose-strong:text-gray-900
+            ">
+
+
                 <div className="mb-10">
                   <p className="text-xl font-medium text-gray-700 leading-relaxed">
                     {blog.excerpt}
