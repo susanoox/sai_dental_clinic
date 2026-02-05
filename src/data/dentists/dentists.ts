@@ -11,8 +11,9 @@ export interface DentistData {
   education: string
   email: string
   phone: string
-  location: string
-  availability: string
+  locations: DentistLocation[]
+  location: string[]
+  availability: string[]
   specialties: string[]
   achievements: string[]
   featured?: boolean
@@ -25,6 +26,20 @@ export interface DentistsSectionData {
   dentists: DentistData[]
 }
 
+export interface DentistLocation {
+  city: string
+  address: string
+  mapsLink?: string
+  timing: string
+}
+
+interface DentistProfileProps {
+  dentist: {
+    locations: DentistLocation[]   // 👈 REQUIRED
+  }
+}
+
+
 export const dentistsData: DentistsSectionData = {
   sectionTitle: 'Our Team',
   heading: 'Meet our team',
@@ -32,17 +47,40 @@ export const dentistsData: DentistsSectionData = {
   dentists: [
     {
       id: 1,
-      name: "Sophia Hayes",
-      designation: "Cosmetic Dentist",
-      image: "/images/dentists/sophia-hayes.jpg",
-      slug: "sophia-hayes",
-      bio: "Dr. Sophia Hayes is a skilled cosmetic dentist with a passion for creating beautiful, natural-looking smiles. With a keen eye for aesthetics and over 8 years of experience, she combines artistry with advanced techniques to transform smiles and boost confidence. Patients value her dedication to detail and her ability to craft personalized solutions.",
-      experience: "8+ Years",
-      education: "DDS, UCLA School of Dentistry",
-      email: "sophia.hayes@example.com",
-      phone: "(654) 987-3210",
-      location: "Staten Island, NY",
-      availability: "Tue-Fri, 10:00 AM - 4:00 PM",
+      name: "Dr. Srinivas S K",
+      designation: "Dental Surgeon",
+      image: "/images/IMG_5056.jpg",
+      slug: "srinivas",
+      bio: "Dr. Srinivas is a qualified Dental Surgeon (BDS, FDS in Endodontics - Hyderabad) with extensive experience in comprehensive dental care. He specializes in root canal treatments, oral prophylaxis (scaling and cleaning), and dental extractions, delivering precise and comfortable care to patients of all ages. With a strong focus on clinical excellence and patient comfort, Dr. Srinivas combines advanced techniques with a gentle approach to ensure long-lasting oral health and confident smiles. ",
+      experience: "5+ Years",
+      education: "Indira Gandhi Institute of Dental Science, Pondicherry, Senior Internship (Special training @TMC)",
+      email: "saident@example.com",
+      phone: "(91) 987-3210",
+      locations: [
+      {
+        city: "Mayiladuthurai, TN",
+        address: "Kenikarai, Thiruvarur Main Road, Mayiladuthurai - 609001",
+        mapsLink: "https://maps.app.goo.gl/2jpLzEqH6Gu5XPtk7",
+        timing: "5:00 PM – 9:30 PM (Everyday)"
+      },
+      {
+        city: "Needur Branch, Mayiladuthurai, TN",
+        address: "Near Indian Overseas Bank, Main Road, Needur - 609203",
+        mapsLink: "https://maps.app.goo.gl/zE9LDUzpAcBU4KDY9",
+        timing: "10:00 AM – 3:00 PM (Everyday)"
+      }
+    ],
+
+      location: [
+        "Kenikarai, Thiruvarur Main Road, Near Periyar Statue, Mayiladuthurai, TN",
+        "Another Branch Location, Mayiladuthurai, TN"
+      ],
+
+      availability: [
+        "Sun–Sat, 10:00 AM – 4:00 PM",
+        "Sun–Sat, 6:00 PM – 9:00 PM"
+      ],
+
       specialties: [
         "Specialist in veneers, whitening, and smile makeovers",
         "Successfully completed over 1,200 cosmetic cases",
@@ -68,8 +106,22 @@ export const dentistsData: DentistsSectionData = {
       education: "DMD, Harvard School of Dental Medicine",
       email: "noah.bennett@example.com",
       phone: "(555) 123-4567",
-      location: "Brooklyn, NY",
-      availability: "Mon-Thu, 9:00 AM - 5:00 PM",
+      locations: [
+      {
+        city: "Mayiladuthurai, TN",
+        address: "Kenikarai, Thiruvarur Main Road, Mayiladuthurai - 609001",
+        timing: "5:00 PM – 9:30 PM (Everyday)"
+      },
+      {
+        city: "Needur Branch, Mayiladuthurai, TN",
+        address: "Near Indian Overseas Bank, Main Road, Needur - 609203",
+        mapsLink: "https://maps.app.goo.gl/zE9LDUzpAcBU4KDY9",
+        timing: "10:00 AM – 3:00 PM (Everyday)"
+      }
+    ],
+
+      location: ["Brooklyn, NY"],
+      availability: ["Mon-Thu, 9:00 AM - 5:00 PM"],
       specialties: [
         "Expert in root canal therapy and retreatment",
         "Utilizes digital imaging for precise diagnosis",
@@ -94,8 +146,22 @@ export const dentistsData: DentistsSectionData = {
       education: "MSD, University of Washington",
       email: "liam.brooks@example.com",
       phone: "(555) 234-5678",
-      location: "Manhattan, NY",
-      availability: "Wed-Sat, 8:00 AM - 6:00 PM",
+      locations: [
+      {
+        city: "Mayiladuthurai, TN",
+        address: "Kenikarai, Thiruvarur Main Road, Mayiladuthurai - 609001",
+        timing: "5:00 PM – 9:30 PM (Everyday)"
+      },
+      {
+        city: "Needur Branch, Mayiladuthurai, TN",
+        address: "Near Indian Overseas Bank, Main Road, Needur - 609203",
+        mapsLink: "https://maps.app.goo.gl/zE9LDUzpAcBU4KDY9",
+        timing: "10:00 AM – 3:00 PM (Everyday)"
+      }
+    ],
+
+      location: ["Manhattan, NY"],
+      availability: ["Wed-Sat, 8:00 AM - 6:00 PM"],
       specialties: [
         "Expert in gum disease treatment and prevention",
         "Specializes in dental implant placement",
@@ -121,8 +187,22 @@ export const dentistsData: DentistsSectionData = {
       education: "DDS, Columbia University",
       email: "michael.reed@example.com",
       phone: "(555) 345-6789",
-      location: "Queens, NY",
-      availability: "Mon-Fri, 8:30 AM - 4:30 PM",
+      locations: [
+      {
+        city: "Mayiladuthurai, TN",
+        address: "Kenikarai, Thiruvarur Main Road, Mayiladuthurai - 609001",
+        timing: "5:00 PM – 9:30 PM (Everyday)"
+      },
+      {
+        city: "Needur Branch, Mayiladuthurai, TN",
+        address: "Near Indian Overseas Bank, Main Road, Needur - 609203",
+        mapsLink: "https://maps.app.goo.gl/zE9LDUzpAcBU4KDY9",
+        timing: "10:00 AM – 3:00 PM (Everyday)"
+      }
+    ],
+
+      location: ["Queens, NY"],
+      availability: ["Mon-Fri, 8:30 AM - 4:30 PM"],
       specialties: [
         "Specialist in braces and Invisalign treatments",
         "Expert in treating complex malocclusions",
@@ -147,8 +227,22 @@ export const dentistsData: DentistsSectionData = {
       education: "DMD, University of Pennsylvania",
       email: "ethan.wells@example.com",
       phone: "(555) 456-7890",
-      location: "Bronx, NY",
-      availability: "Tue-Sat, 9:00 AM - 5:00 PM",
+      location: ["Bronx, NY"],
+      locations: [
+      {
+        city: "Mayiladuthurai, TN",
+        address: "Kenikarai, Thiruvarur Main Road, Mayiladuthurai - 609001",
+        timing: "5:00 PM – 9:30 PM (Everyday)"
+      },
+      {
+        city: "Needur Branch, Mayiladuthurai, TN",
+        address: "Near Indian Overseas Bank, Main Road, Needur - 609203",
+        mapsLink: "https://maps.app.goo.gl/zE9LDUzpAcBU4KDY9",
+        timing: "10:00 AM – 3:00 PM (Everyday)"
+      }
+    ],
+
+      availability: ["Tue-Sat, 9:00 AM - 5:00 PM"],
       specialties: [
         "Specializes in children's dental care",
         "Expert in preventive dentistry and sealants",
@@ -173,8 +267,23 @@ export const dentistsData: DentistsSectionData = {
       education: "DDS, University of Michigan",
       email: "amelia.carter@example.com",
       phone: "(555) 567-8901",
-      location: "Manhattan, NY",
-      availability: "Mon-Thu, 7:00 AM - 3:00 PM",
+      location: ["Manhattan, NY"],
+      locations: [
+      {
+        city: "Mayiladuthurai, TN",
+        address: "Kenikarai, Thiruvarur Main Road, Mayiladuthurai - 609001",
+        mapsLink: "https://maps.app.goo.gl/CYMPMafdhsE3z7NZ9",
+        timing: "5:00 PM – 9:30 PM (Everyday)"
+      },
+      {
+        city: "Needur Branch, Mayiladuthurai, TN",
+        address: "Near Indian Overseas Bank, Main Road, Needur - 609203",
+        mapsLink: "https://maps.app.goo.gl/zE9LDUzpAcBU4KDY9",
+        timing: "10:00 AM – 3:00 PM (Everyday)"
+      }
+    ],
+
+      availability: ["Mon-Thu, 7:00 AM - 3:00 PM"],
       specialties: [
         "Expert in oral and maxillofacial surgery",
         "Specializes in complex dental implant cases",

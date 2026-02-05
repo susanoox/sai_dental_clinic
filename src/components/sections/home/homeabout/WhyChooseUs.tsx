@@ -1,6 +1,7 @@
 "use client"
 
 import React from 'react';
+import { useRouter } from "next/navigation"
 import { whyChooseUsData } from "@/data/home/whychooseusnew"
 import { motion } from "framer-motion"
 import ContentContainer from '@/components/common-ui/containers/ContentContainer'
@@ -26,6 +27,7 @@ const itemMotion = {
 }
 
 const WhyChooseUsSection = ({ data }: WhyChooseUsSectionProps) => {
+  const router = useRouter()
   return (
     <div>
       <ContentContainer className='items-center justify-center space-y-8'>
@@ -87,7 +89,8 @@ const WhyChooseUsSection = ({ data }: WhyChooseUsSectionProps) => {
               transition={{ ...defaultMotion.transition, delay: 0.3 }}
               className="flex justify-center lg:justify-start pt-4"
             >
-              <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 inline-flex items-center">
+              <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 inline-flex items-center"
+              onClick={() => router.push("/about")}>
                 {data.buttonText}
                 <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

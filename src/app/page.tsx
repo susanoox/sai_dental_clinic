@@ -9,6 +9,7 @@ import TestimonialsSection from '@/components/sections/home/testimonials/Testimo
 import BlogsSection from '@/components/sections/blogs/BlogsSection'
 import AppointmentSection from '@/components/sections/home/appointment/AppointmentSection'
 import FAQSection from '@/components/sections/home/faq/FAQSection'
+import GoogleReviews from "@/components/common-ui/google-reviews/GoogleReviews"
 // import ContactSection from '@/components/sections/home/contact/ContactSection'
 import ContactSection from '@/components/common-ui/contactForm/ContactSection'
 import SubscribeSection from '@/components/sections/subscribe/SubscribeSection'
@@ -39,8 +40,7 @@ const Page = () => {
       <AppointmentSection data={appointmentData} />
       <BlogsSection data={blogsData} />
       <FAQSection data={faqData} />
-      <ContactSection locations={contactLocations} />
-      <SubscribeSection data={subscribeData} />
+      
     </main>
   )
 }

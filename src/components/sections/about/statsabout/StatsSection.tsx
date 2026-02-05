@@ -92,8 +92,8 @@ const StatsSection = ({ statsData, videoSrc }: StatsAboutProps) => {
   // All 6 stats
   const allStats = [
     ...statsData.stats,
-    { number: "250+", label: "Successful treatments" },
-    { number: "20+", label: "Dedicated professionals" }
+    // { number: "250+", label: "Successful treatments" },
+    // { number: "5+", label: "Specialized Dental Services" }
   ]
 
   return (

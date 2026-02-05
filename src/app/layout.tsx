@@ -7,7 +7,12 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
-
+import GoogleReviews from "@/components/common-ui/google-reviews/GoogleReviews"
+import ContactSection from '@/components/common-ui/contactForm/ContactSection'
+import SubscribeSection from '@/components/sections/subscribe/SubscribeSection'
+import GoogleBusinessQR from '@/components/common-ui/businessqr/GoogleBusinessQR'
+import { contactLocations } from '@/data/contact/contact'
+import { subscribeData } from '@/data/home/subscribe'
 // export const metadata: Metadata = {
 //   title: "SAI Dental Clinic - Your Smile, Our Passion",
 //   description: "Professional dental care with 70+ years of experience in Mayiladuthurai and Nidur",
@@ -35,6 +40,10 @@ export default function RootLayout({
       >
         <Header />
         <main>{children}</main>
+         <GoogleReviews />
+         <ContactSection locations={contactLocations} />
+      <SubscribeSection data={subscribeData} />
+      <GoogleBusinessQR />
         <Footer />
       </body>
     </html>

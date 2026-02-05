@@ -3,6 +3,7 @@
     {
       city: 'Mayiladuthurai, TN',
       address: 'Kenikarai, Thiruvarur Main Road, Mayiladuthurai - 609001',
+      mapsLink: "https://maps.app.goo.gl/RaEo97fSufvnYvT66"
     },
     {
       city: 'Needur branch, Mayiladuthurai, TN',

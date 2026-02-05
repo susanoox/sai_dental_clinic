@@ -57,7 +57,7 @@ const Page = () => {
                 }
 
             </ContentContainer>
-            <ContactSection locations={contactLocations} />
+
         </div>
     )
 }

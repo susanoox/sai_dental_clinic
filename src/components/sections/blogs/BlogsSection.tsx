@@ -95,11 +95,11 @@ const BlogsSection = ({ data }: BlogsSectionProps) => {
               data={{
                 id: blog.id,
                 title: blog.title,
-                excerpt: blog.excerpt,
-                date: blog.date,
-                readTime: blog.readTime,
-                image: blog.image,
-                category: blog.category,
+                excerpt: blog.excerpt || '',       // fallback to empty string if undefined
+                date: blog.date || '',
+                readTime: blog.readTime || '',
+                image: blog.image || '',
+                category: blog.category || '',
                 slug: blog.slug
               }}
               motionProps={{
