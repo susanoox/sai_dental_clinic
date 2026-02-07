@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import ContentContainer from '@/components/common-ui/containers/ContentContainer';
 import { MapPin, Phone, Mail, Facebook, Twitter, Instagram, Target } from "lucide-react";
+import { serviceData } from "@/data/service/service";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -16,13 +17,7 @@ const Footer = () => {
     { href: "#contact", label: "Contact" },
   ];
 
-  const services = [
-    "Teeth Whitening",
-    "Dental Implants", 
-    "Root Canal",
-    "Cosmetic Fillings",
-    "Routine Checkups"
-  ];
+
 
   const socialLinks = [
     { icon: Facebook, href: "https://www.facebook.com/saidentalclinic1/", label: "Facebook"},
@@ -92,22 +87,27 @@ const Footer = () => {
           </motion.div>
 
           {/* Services */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <h4 className="text-lg font-semibold mb-4 text-white">Our Services</h4>
-            <ul className="space-y-2">
-              {services.map((service) => (
-                <li key={service}>
-                  <span className="text-gray-300 hover:text-white transition-colors duration-200 cursor-pointer">
-                    {service}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5, delay: 0.2 }}
+>
+  <h4 className="text-lg font-semibold mb-4 text-white">Our Services</h4>
+
+  <ul className="space-y-2">
+    {serviceData.cards.map((service) => (
+      <li key={service.id}>
+        <Link
+          href={`/servicePage/${service.id}`}
+          className="text-gray-300 hover:text-white transition-colors duration-200"
+        >
+          {service.title}
+        </Link>
+      </li>
+    ))}
+  </ul>
+</motion.div>
+
 
           {/* Operating Hours & Social */}
           <motion.div

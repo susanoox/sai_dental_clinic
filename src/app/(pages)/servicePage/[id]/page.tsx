@@ -1,5 +1,7 @@
 "use client"
 
+export const runtime = "edge";
+
 import ContactSection from '@/components/common-ui/contactForm/ContactSection'
 import ContentContainer from '@/components/common-ui/containers/ContentContainer'
 import ContentText from '@/components/common-ui/contentText/ContentText'

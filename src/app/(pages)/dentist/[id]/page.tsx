@@ -1,5 +1,8 @@
 // src/app/(pages)/dentist/[id]/page.tsx
+
 "use client"
+export const runtime = "edge";
+
 
 import { useParams, notFound } from 'next/navigation'
 import { getDentistById, dentistsData } from '@/data/dentists/dentists'
