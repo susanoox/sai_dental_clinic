@@ -14,6 +14,6 @@ export interface HeroSectionData {
       'Experience personalized dental care designed to meet your unique needs. From preventive checkups to advanced oral health and confidence are always at their best.'
     ],
     buttonText: 'Book Now',
-    phone: '+91 9876543210',
-    image: '/images/heroSectionImage1.jpg'
+    phone: '+91 8122835737, +91 8903157201',
+    image: '/images/IMG_5042.jpg'
   };

@@ -39,7 +39,7 @@ export default function GoogleBusinessQRSection() {
             <span className="text-gray-700 font-medium">Scan here</span>
           </div>
           <img
-            src="https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=https://www.google.co.in/search?utm_medium=noren&utm_source=gbp&utm_campaign=2026&q=SAI+DENTAL+CLINIC+(Mayiladuthurai+Branch+)-+Dr+Srinivas+%7C+Invisible+Aligners%7CDental+Implants%7CRCT&ludocid=917789804920276631&lsig=AB86z5VGNf01kKsRpFNxHa2bS0HC&gfe_rd=mr&pli=1#ebo=0"
+            src="https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=https://local.google.com/place?placeid=ChIJg6M5EB0hVToRl4a_BPekvAw&utm_medium=noren&utm_source=gbp&utm_campaign=2026"
             alt="Google Business Profile QR"
             className="w-72 h-72 md:w-80 md:h-80"
           />
