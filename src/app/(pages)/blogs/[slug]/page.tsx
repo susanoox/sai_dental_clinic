@@ -1,18 +1,19 @@
-      import { notFound } from "next/navigation"
-      import Link from "next/link"
-      import { FaCalendar, FaUser, FaClock, FaShareAlt } from "react-icons/fa"
+export const runtime = 'edge';
+import { notFound } from "next/navigation"
+import Link from "next/link"
+import { FaCalendar, FaUser, FaClock, FaShareAlt } from "react-icons/fa"
 
-      import MDXRenderer from "@/components/mdx/MDXRenderer"
+import MDXRenderer from "@/components/mdx/MDXRenderer"
 
-      import ContentContainer from "@/components/common-ui/containers/ContentContainer"
-      import PageHeading from "@/components/common-ui/headers/PageHeading"
+import ContentContainer from "@/components/common-ui/containers/ContentContainer"
+import PageHeading from "@/components/common-ui/headers/PageHeading"
 
-      import { getBlogBySlug, getAllBlogs } from "@/lib/mdx"
+import { getBlogBySlug, getAllBlogs } from "@/lib/mdx"
 
-      interface PageProps {
+interface PageProps {
         params: Promise<{ slug: string }>}
 
-      export default async function BlogDetailPage({ params }: PageProps) {
+export default async function BlogDetailPage({ params }: PageProps) {
   const { slug } = await params
 
   const blog = await getBlogBySlug(slug)
