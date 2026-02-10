@@ -1,4 +1,5 @@
-export const runtime = 'edge';
+export const runtime = "nodejs"
+
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { FaCalendar, FaUser, FaClock, FaShareAlt } from "react-icons/fa"
