@@ -23,6 +23,10 @@ export interface BlogWithContent extends BlogMeta {
   content: MDXRemoteSerializeResult
 }
 
+export interface BlogWithRawContent extends BlogMeta {
+  content: string
+}
+
 /* LIST PAGE */
 export function getAllBlogs(): BlogMeta[] {
   return fs
@@ -60,5 +64,22 @@ export async function getBlogBySlug(
     slug,
     ...(data as Omit<BlogMeta, "slug">),
     content: mdxSource, // ✅ serialized
+  }
+}
+
+/* DETAIL PAGE - RAW CONTENT */
+export function getBlogBySlugRaw(
+  slug: string
+): BlogWithRawContent | null {
+  const filePath = path.join(BLOG_DIR, `${slug}.mdx`)
+  if (!fs.existsSync(filePath)) return null
+
+  const source = fs.readFileSync(filePath, "utf8")
+  const { data, content } = matter(source)
+
+  return {
+    slug,
+    ...(data as Omit<BlogMeta, "slug">),
+    content, // raw markdown string
   }
 }

@@ -1,25 +1,22 @@
-"use client"
-
-export const runtime = "edge";
-
-import ContactSection from '@/components/common-ui/contactForm/ContactSection'
 import ContentContainer from '@/components/common-ui/containers/ContentContainer'
 import ContentText from '@/components/common-ui/contentText/ContentText'
 import PageHeading from '@/components/common-ui/headers/PageHeading'
 import HeroImage from '@/components/sections/home/heroSection/HeroImage'
 import FeatureChecklist from '@/components/sections/service/FeatureChecklist'
-import { contactLocations } from '@/data/contact/contact'
 import { serviceData } from '@/data/service/service'
-import Image from 'next/image'
-import { useParams } from 'next/navigation'
 import React from 'react'
 
-const Page = () => {
-    const param = useParams()
-    console.log(param)
+export async function generateStaticParams() {
+    return serviceData.cards.map((service) => ({
+        id: service.id.toString(),
+    }))
+}
+// export const dynamicParams = true;
 
-    const filteredData = serviceData.cards.filter((item) => item.id.toString() === param.id)
-    console.log(filteredData)
+const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
+    const { id } = await params
+
+    const filteredData = serviceData.cards.filter((item) => item.id.toString() === id)
     return (
         <div>
             <ContentContainer>
@@ -35,7 +32,7 @@ const Page = () => {
                                     <ContentText children={item.description} className='px-6' motionProps={{ animate: { opacity: 1, y: 0 } }} />
                                 </div>
                             </div>
-                            <HeroImage src={item.imgSrc} alt={item.title} className='max-w-full h-[90vh]' motionProps={{ animate: { opacity: 1 , scale:1 } }} />
+                            <HeroImage src={item.imgSrc} alt={item.title} className='max-w-full h-[90vh]' motionProps={{ animate: { opacity: 1, scale: 1 } }} />
                             <div className='flex flex-col space-y-8 lg:px-20 '>
                                 {
                                     item?.detailsPageData?.map((detail, idx) => (
