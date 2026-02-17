@@ -9,7 +9,7 @@ import HeroActions from "./HeroActions";
 import HeroImage from "./HeroImage";
 import ContentContainer from "@/components/common-ui/containers/ContentContainer";
 
-import type { HeroSectionData } from "@/data/home/hero"; // import your type
+import type { HeroSectionData } from "@/data/home/hero"; 
 
 type HeroSectionProps = {
     data: HeroSectionData;

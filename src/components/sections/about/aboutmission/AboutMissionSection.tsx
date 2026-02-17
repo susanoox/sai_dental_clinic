@@ -38,7 +38,7 @@ const AboutMissionSection = ({ data }: AboutMissionSectionProps) => {
               className="relative w-full h-full pr-0 lg:pr-12"
             >
               <img
-                src="/images/gallery2.jpg"
+                src="/images/gallery/gallery2.jpg"
                 alt="Dental clinic interior"
                 className="rounded-2xl w-full h-[350px] md:h-[450px] lg:h-[500px] object-cover shadow-lg"
               />

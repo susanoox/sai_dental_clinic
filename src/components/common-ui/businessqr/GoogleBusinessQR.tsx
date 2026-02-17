@@ -77,7 +77,7 @@ export default function GoogleBusinessQRSection() {
           rel="noopener noreferrer"
           className="text-blue-600 hover:underline break-all"
         >
-          https://search.google.com/local/writereview?placeid=ChIJg6M5EB0hVToRl4a_BPekvAw
+          Click here!
         </a>
       </p>
     </section>

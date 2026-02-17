@@ -4,6 +4,6 @@ export interface VideoData {
 }
 
 export const videoData: VideoData = {
-  videoUrl: "/images/samplevideo.mp4",
-  videoPoster: "/images/video-poster.jpg", // Optional
+  videoUrl: "/videos/samplevideo.mp4",
+  videoPoster: "", // Optional
 };
