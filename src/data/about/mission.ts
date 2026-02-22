@@ -14,8 +14,6 @@ export const aboutMissionData: AboutMissionData = {
     "Our Mission: Provide exceptional dental care that promotes lifelong oral health, enhances confidence, and prioritizes patient comfort through personalized and treatments."
   ],
   contactItems: [
-    "All Bookmarks",
-    "See All Templates", 
-    "Made in France"
+   
   ]
 };

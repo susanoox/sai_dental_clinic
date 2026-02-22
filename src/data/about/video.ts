@@ -1,4 +1,4 @@
 export const aboutVideoData = {
-  videoUrl: "/images/samplevideo", // Different video
+  videoUrl: "/videos/samplevideo", // Different video
   videoPoster: "/images/about-video-poster.jpg",
 };

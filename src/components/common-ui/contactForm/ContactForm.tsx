@@ -15,8 +15,32 @@ export function ContactForm({ className }: { className?: string }) {
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setSubmitting(true)
+
     try {
-      await new Promise((r) => setTimeout(r, 600))
+      const form = e.currentTarget
+      const data = new FormData(form)
+
+      const name    = data.get("name") as string
+      const phone   = data.get("phone") as string
+      const email   = data.get("email") as string
+      const date    = data.get("date") as string
+      const message = data.get("message") as string
+
+      const text = `
+*New Contact Form Submission*
+----------------------------
+*Name:* ${name}
+*Phone:* ${phone}
+*Email:* ${email}
+*Date:* ${date}
+*Message:* ${message}
+      `.trim()
+
+      const YOUR_WHATSAPP_NUMBER = "8122835737" // ← replace with your number
+      const url = `https://wa.me/${YOUR_WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`
+
+      window.open(url, "_blank")
+      form.reset()
     } finally {
       setSubmitting(false)
     }
@@ -39,8 +63,8 @@ export function ContactForm({ className }: { className?: string }) {
     >
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {[
-          { id: "name", label: "Name", type: "text", placeholder: "Jane Smith" },
-          { id: "phone", label: "Phone number", type: "tel", placeholder: "(123) 456 789" },
+          { id: "name", label: "Name", type: "text", placeholder: "Enter your name here" },
+          { id: "phone", label: "Phone number", type: "tel", placeholder: "Enter your Phone Number" },
           { id: "email", label: "Email address", type: "email", placeholder: "test@gmail.com" },
           { id: "date", label: "Select date", type: "date", placeholder: "dd-mm-yyyy" },
         ].map((field, index) => (
@@ -65,7 +89,7 @@ export function ContactForm({ className }: { className?: string }) {
           transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
         >
           <Label htmlFor="message">Message</Label>
-          <Textarea id="message" name="message" placeholder="Write your idea" className="min-h-[120px]" />
+          <Textarea id="message" name="message" placeholder="What is your concern?" className="min-h-[120px]" />
         </motion.div>
       </div>
 

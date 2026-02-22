@@ -59,7 +59,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center">
                 <Mail className="h-4 w-4 mr-2 text-blue-400" />
-                <span>contact@saidental.com</span>
+                <span>saisri.dentalcare@gmail.com</span>
               </div>
             </div>
           </motion.div>

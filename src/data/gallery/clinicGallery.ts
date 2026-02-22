@@ -8,7 +8,7 @@ export const clinicGallery: GalleryImage[] = Array.from(
   { length: 42 },
   (_, i) => ({
     id: i + 1,
-    src: `/images/service/treatments/t${i + 1}.jpg`,
+    src: `/images/treatments/t${i + 1}.webp`,
     alt: `Clinic treatment ${i + 1}`,
   })
 )

@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import GoogleReviews from "@/components/common-ui/google-reviews/GoogleReviews"
 import ContactSection from '@/components/common-ui/contactForm/ContactSection'
+import { WhatsAppFloat} from '@/components/common-ui/whatsappfloat/WhatsappFloat'
 import SubscribeSection from '@/components/sections/subscribe/SubscribeSection'
 import GoogleBusinessQR from '@/components/common-ui/businessqr/GoogleBusinessQR'
 import { contactLocations } from '@/data/contact/contact'
@@ -40,9 +41,10 @@ export default function RootLayout({
       >
         <Header />
         <main>{children}</main>
+        <WhatsAppFloat />
          <GoogleReviews />
          <ContactSection locations={contactLocations} />
-      <SubscribeSection data={subscribeData} />
+      {/*<SubscribeSection data={subscribeData} need to create function for this*/}
       <GoogleBusinessQR />
         <Footer />
       </body>

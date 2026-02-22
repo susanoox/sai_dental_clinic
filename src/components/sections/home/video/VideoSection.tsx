@@ -23,7 +23,7 @@ const defaultMotion: MotionProps = {
 export default function VideoSection({
   className,
   videoClassName,
-  src = "/images/samplevideo.mp4",
+  src = "/videos/samplevideo.mp4",
   poster,
   motionProps,
 }: VideoSectionProps) {
@@ -135,7 +135,7 @@ export default function VideoSection({
                 <div className="text-5xl mb-2">🎬</div>
                 <p className="text-lg font-medium">Clinic Tour Video</p>
                 <p className="text-sm mt-1">
-                  {videoError ? "Video failed to load" : "Add video to public/images/"}
+                  {videoError ? "Video failed to load" : "Add video to public/videos/"}
                 </p>
               </motion.div>
             </div>
