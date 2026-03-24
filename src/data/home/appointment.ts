@@ -17,7 +17,7 @@ export const appointmentData: AppointmentData = {
   items: [
     {
       id: 1,
-      image: "/images/heroSectionImage1.jpg",
+      image: "/images/dentist/dentist3e.webp",
       title: "Book an Appointment",
       description:
         "Schedule your appointment easily by phone or online at a time that works best for you.",
@@ -29,7 +29,7 @@ export const appointmentData: AppointmentData = {
     },
     {
       id: 2,
-      image: "/images/heroSectionImage1.jpg",
+      image: "/images/dentist/dentist1e.webp",
       title: "Consultation",
       description:
         "Get a thorough dental check-up and a personalized treatment plan tailored to your needs.",
@@ -41,7 +41,7 @@ export const appointmentData: AppointmentData = {
     },
     {
       id: 3,
-      image: "/images/heroSectionImage1.jpg",
+      image: "/images/dentist/dentist2e.webp",
       title: "Treatment",
       description:
         "Receive high-quality dental care using modern technology in a comfortable environment.",

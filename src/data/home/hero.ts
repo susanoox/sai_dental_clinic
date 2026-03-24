@@ -15,5 +15,5 @@ export interface HeroSectionData {
     ],
     buttonText: 'Book Now',
     phone: '+91 8122835737, +91 8903157201',
-    image: '/images/dentist/IMG_5056.webp'
+    image: '/images/dentist/dentist4.webp'
   };

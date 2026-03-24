@@ -18,7 +18,7 @@ interface AppointmentItemProps {
 }
 
 const AppointmentItem = ({ item, reverse = false }: AppointmentItemProps) => {
-  // Animation variants
+
   const imageAnimation = {
     initial: { opacity: 0, x: reverse ? 100 : -100 },
     whileInView: { opacity: 1, x: 0 },
@@ -33,101 +33,53 @@ const AppointmentItem = ({ item, reverse = false }: AppointmentItemProps) => {
     transition: { duration: 0.8, ease: "easeOut" }
   };
 
-  const titleAnimation = {
-    initial: { opacity: 0, y: 30 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-    transition: { duration: 0.6, delay: 0.2 }
-  };
-
-  const descriptionAnimation = {
-    initial: { opacity: 0, y: 20 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-    transition: { duration: 0.6, delay: 0.3 }
-  };
-
-  const listContainerAnimation = {
-    initial: { opacity: 0 },
-    whileInView: { 
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15
-      }
-    },
-    viewport: { once: true }
-  };
-
-  const listItemAnimation = {
-    initial: { opacity: 0, x: -20 },
-    whileInView: { opacity: 1, x: 0 },
-    transition: { duration: 0.5 }
-  };
-
   return (
-    <div className={cn(
-      "grid grid-cols-1 md:grid-cols-2 gap-12 items-center",
-      reverse ? 'md:flex-row-reverse' : ''
-    )}>
-      {/* Image Section with Animation */}
-      <motion.div 
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+      {/* 🖼️ Image Section (Hero style) */}
+      <motion.div
         className={cn(
           "relative aspect-square w-full max-w-xl mx-auto",
-          reverse ? 'md:order-2' : 'md:order-1'
+          reverse ? "md:order-2" : "md:order-1"
         )}
         {...imageAnimation}
       >
-        <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl">
-          <Image 
-            src={item.image} 
-            alt={item.title}
-            fill
-            className="object-cover"
-            priority={item.id === 1}
-            sizes="(max-width: 768px) 100vw, 50vw"
-          />
-        </div>
+        <Image
+          src={item.image}
+          alt={item.title}
+          fill
+          className="object-cover rounded-2xl"
+          priority={item.id === 1}
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
       </motion.div>
 
-      {/* Content Section with Animations */}
-      <div className={cn(
-        "flex flex-col justify-center space-y-8",
-        reverse ? 'md:order-1' : 'md:order-2'
-      )}>
-        <motion.h3 
-          className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900"
-          {...titleAnimation}
-        >
+      {/* 📝 Content Section */}
+      <motion.div
+  className={cn(
+    "flex flex-col justify-center space-y-6 w-full max-w-xl mx-auto",
+    reverse ? "md:order-1" : "md:order-2"
+  )}
+  {...contentAnimation}
+>
+        <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
           {item.title}
-        </motion.h3>
-        
-        <motion.div {...descriptionAnimation}>
-          <ContentText className="text-gray-600 text-lg md:text-xl leading-relaxed">
-            {item.description}
-          </ContentText>
-        </motion.div>
+        </h3>
 
-        {/* Features List with Staggered Animations */}
-        <motion.ul 
-          className="space-y-4"
-          {...listContainerAnimation}
-        >
+        <ContentText className="text-gray-600 text-lg md:text-xl leading-relaxed">
+          {item.description}
+        </ContentText>
+
+        <ul className="space-y-3">
           {item.features.map((feature, index) => (
-            <motion.li 
-              key={index} 
-              className="flex items-center gap-4"
-              {...listItemAnimation}
-            >
-              <motion.div 
-                className="w-3 h-3 bg-blue-500 rounded-full flex-shrink-0"
-                whileHover={{ scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              />
+            <li key={index} className="flex items-center gap-3">
+              <div className="w-2.5 h-2.5 bg-blue-500 rounded-full flex-shrink-0" />
               <span className="text-gray-700 text-lg">{feature}</span>
-            </motion.li>
+            </li>
           ))}
-        </motion.ul>
-      </div>
+        </ul>
+      </motion.div>
+
     </div>
   );
 };

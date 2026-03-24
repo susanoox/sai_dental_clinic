@@ -49,7 +49,7 @@ export const dentistsData: DentistsSectionData = {
       id: 1,
       name: "Dr. Srinivas S K",
       designation: "Dental Surgeon",
-      image: "/images/dentist/IMG_5056.webp",
+      image: "/images/dentist/dentist4.webp",
       slug: "srinivas",
       bio: "Dr. Srinivas is a qualified Dental Surgeon (BDS, FDS in Endodontics - Hyderabad) with extensive experience in comprehensive dental care. He specializes in root canal treatments, oral prophylaxis (scaling and cleaning), and dental extractions, delivering precise and comfortable care to patients of all ages. With a strong focus on clinical excellence and patient comfort, Dr. Srinivas combines advanced techniques with a gentle approach to ensure long-lasting oral health and confident smiles. ",
       experience: "5+ Years",
