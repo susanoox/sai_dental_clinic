@@ -41,18 +41,20 @@ const ServiceCard = ({ icon, id , title, description, className, motionProps, im
             {...motionProps}
             whileHover={{ y: -4, scale: 1.01 }}
             whileTap={{ scale: 0.99 }}
-            className={cn("flex flex-col items-start text-left gap-4 border border-black md:border-none p-2 md:p-0 rounded-md hover:cursor-pointer", className)}
+            className={cn(
+  "h-[320px] flex flex-col justify-between items-start text-left gap-4 border border-black md:border-none p-3 md:p-0 rounded-md hover:cursor-pointer",
+  className
+)}
             onClick={() => handleNavigateDeatilsPage(id)}
         >
             <CardImage
                 src={imgSrc}
-                motionProps={motionProps}
-            // className="max-w-sm"
-            // imageClassName="h-40 md:h-40  object-contain"
-            />
+                className="w-full"
+                imageClassName="h-40 w-full object-cover rounded-md"
+                />
             <RatingBadge value={rating}  motionProps={motionProps}  />
             <PageHeading className="text-xl font-semibold" >{title}</PageHeading>
-            <ContentText className="text-lg">{description}</ContentText>
+            <ContentText className="text-lg min-h-[48px] line-clamp-2">{description}</ContentText>
 
         </motion.div>
     )

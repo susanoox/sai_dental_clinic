@@ -40,7 +40,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Header />
-        <main className="px-4 sm:px-6 lg:px-0">{children}</main>
+        <main className="px-4 sm:px-6 lg:px-0 pb-24">{children}</main>
         <WhatsAppFloat />
          <GoogleReviews />
          <ContactSection locations={contactLocations} />
