@@ -306,7 +306,7 @@ export const serviceData = {
             title: "Wisdom Tooth Extraction",
             description: "Safe removal of impacted or painful wisdom teeth.",
             rating: 5.0,
-            imgSrc: "/images/service/wisdom-tooth.webp",
+            imgSrc: "/images/service/wisdomtooth.webp",
             detailsPageData: [
                 {
                     title: "About Service",
@@ -362,7 +362,7 @@ export const serviceData = {
             title: "Dental Crowns & Bridges",
             description: "Restore damaged or missing teeth effectively.",
             rating: 5.0,
-            imgSrc: "/images/service/crowns-bridges.webp",
+            imgSrc: "/images/service/dentalcrowns.webp",
             detailsPageData: [
                 {
                     title: "About Service",
@@ -418,7 +418,7 @@ export const serviceData = {
             title: "Teeth Whitening",
             description: "Brighten your smile with professional whitening.",
             rating: 5.0,
-            imgSrc: "/images/service/teeth-whitening.webp",
+            imgSrc: "/images/service/teethwhitening.webp",
             detailsPageData: [
                 {
                     title: "About Service",
@@ -474,7 +474,7 @@ export const serviceData = {
             title: "Dental Implants",
             description: "Permanent solution for missing teeth.",
             rating: 5.0,
-            imgSrc: "/images/service/dental-implants.webp",
+            imgSrc: "/images/service/dentalimplants.webp",
             detailsPageData: [
                 {
                     title: "About Service",
@@ -530,7 +530,7 @@ export const serviceData = {
             title: "Root Canal Treatment",
             description: "Save infected teeth with painless treatment.",
             rating: 5.0,
-            imgSrc: "/images/service/root-canal.webp",
+            imgSrc: "/images/service/rootcanal.webp",
             detailsPageData: [
                 {
                     title: "About Service",
@@ -558,7 +558,7 @@ export const serviceData = {
     title: "Clear Aligners",
     description: "Straighten your teeth discreetly with comfortable, removable aligners.",
     rating: 4.9,
-    imgSrc: "/images/service/clear-aligners.webp",
+    imgSrc: "/images/service/clearaligners.webp",
     detailsPageData: [
         {
             title: "About Service",

@@ -24,15 +24,15 @@ interface GalleryImageData {
 const galleryImagesData: GalleryImageData[] = [
   {
     id: 1,
-    src: "/images/gallery/gallery1.jpg",
-    alt: "Modern dental clinic interior",
+    src: "/images/clinic/chair1.webp",
+    alt: "Modern dental chair",
     emoji: "🏥",
     className: "h-[500px] lg:h-[650px]",
   },
   {
     id: 2,
-    src: "/images/gallery/gallery2.jpg",
-    alt: "Advanced dental equipment",
+    src: "/images/clinic/clinic3.webp",
+    alt: "Dental clinic place",
     emoji: "⚕️",
     className: "h-[300px] lg:h-[315px]",
   },
@@ -45,7 +45,7 @@ const galleryImagesData: GalleryImageData[] = [
   },
   {
     id: 4,
-    src: "/images/gallery/gallery4.jpg",
+    src: "/images/dentist/dentistchair.webp",
     alt: "Treatment room setup",
     emoji: "🦷",
     className: "h-[500px] lg:h-[650px]",

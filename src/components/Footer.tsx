@@ -29,7 +29,7 @@ const Footer = () => {
     <footer className="bg-gray-900 text-white">
       {/* Main Footer Content */}
       <ContentContainer className="py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           
           {/* Clinic Info */}
           <motion.div
@@ -91,15 +91,15 @@ const Footer = () => {
   initial={{ opacity: 0, y: 20 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.5, delay: 0.2 }}
+  className="lg:col-span-2"
 >
-  <h4 className="text-lg font-semibold mb-4 text-white">Our Services</h4>
-
-  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 sm:whitespace-nowrap sm:-ml-26"> 
+  <h4 className="text-lg font-semibold mb-4 text-white pl-40">Our Services</h4>
+  <ul className="grid grid-cols-2 gap-x-6 gap-y-2">
     {serviceData.cards.map((service) => (
       <li key={service.id}>
         <Link
           href={`/servicePage/${service.id}`}
-          className="text-gray-300 hover:text-white transition-colors duration-200"
+          className="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
         >
           {service.title}
         </Link>
