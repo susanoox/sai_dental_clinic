@@ -14,7 +14,7 @@ const AppointmentSection = ({ data }: AppointmentSectionProps) => {
     <div>
       <ContentContainer className='space-y-12'>
         {/* Header Section */}
-        <div className='text-center space-y-4'>
+        <div className='text-center space-y-4 max-w-4xl mx-auto'>
           <SectionTitleText wrapperClassName='items-center'>
             {data.sectionTitle}
           </SectionTitleText>
@@ -27,7 +27,7 @@ const AppointmentSection = ({ data }: AppointmentSectionProps) => {
         </div>
 
         {/* Appointment Items - will repeat 3 times */}
-        <div className="space-y-16">
+        <div className="space-y-12">
           {data.items.map((item, index) => (
             <AppointmentItem 
               key={item.id}

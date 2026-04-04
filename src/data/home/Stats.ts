@@ -9,9 +9,9 @@ export interface StatsData {
 
 export const statsData: StatsData = {
   stats: [
-    { number: "150+", label: "Smiles Transformed" },
+    { number: "2000+", label: "Smiles Transformed" },
     { number: "5+", label: "Years of Experience" },
-    { number: "1000+", label: "Happy Patients" },
+    { number: "3000+", label: "Happy Patients" },
     { number: "100%", label: "Patient Satisfaction" }
   ]
 };

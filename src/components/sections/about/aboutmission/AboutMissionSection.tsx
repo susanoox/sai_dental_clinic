@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import ContentContainer from '@/components/common-ui/containers/ContentContainer'
 import ContentText from '@/components/common-ui/contentText/ContentText'
 import PageHeading from '@/components/common-ui/headers/PageHeading'
-
+import ToothAnimation from "@/components/animations/ToothAnimation";
 interface AboutMissionData {
   heading: string;
   mission: string;
@@ -33,16 +33,12 @@ const AboutMissionSection = ({ data }: AboutMissionSectionProps) => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-0 w-full items-start">
             
             {/* Image on the left - Matching StatsSection layout */}
-            <motion.div 
-              {...defaultMotion}
-              className="relative w-full h-full pr-0 lg:pr-12"
-            >
-              <img
-                src="/images/gallery/gallery2.jpg"
-                alt="Dental clinic interior"
-                className="rounded-2xl w-full h-[350px] md:h-[450px] lg:h-[500px] object-cover shadow-lg"
-              />
-            </motion.div>
+<motion.div
+  {...defaultMotion}
+  className="relative w-full flex items-center justify-center pr-0 lg:pr-12"
+>
+  <ToothAnimation className="w-[260px] h-[260px] md:w-[360px] md:h-[360px] lg:w-[420px] lg:h-[420px]" />
+</motion.div>
 
             {/* Content on the right - Matching StatsSection spacing */}
             <div className="space-y-6 w-full pl-0 lg:pl-12 flex flex-col justify-center h-full">

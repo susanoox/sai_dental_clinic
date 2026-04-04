@@ -20,7 +20,7 @@ export function WhatsAppFloat() {
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+    <div className="fixed bottom-6 right-4 md:right-6 z-50">
 
       {/* Popup card */}
       <AnimatePresence>
@@ -30,7 +30,7 @@ export function WhatsAppFloat() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="w-72 rounded-2xl bg-card shadow-xl ring-1 ring-border overflow-hidden"
+            className="absolute bottom-16 right-0 w-[90vw] max-w-xs"
           >
             {/* Header */}
             <div className="flex items-center justify-between bg-green-500 px-4 py-3">

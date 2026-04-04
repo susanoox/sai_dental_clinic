@@ -26,6 +26,7 @@ import { faqData } from '@/data/home/faq'
 import { contactData } from '@/data/home/contact'
 import { contactLocations } from '@/data/contact/contact'
 import { subscribeData } from '@/data/home/subscribe'
+import { featuredServices } from '@/data/service/featuredServices'
 const Page = () => {
   return (
     <main className="">
@@ -33,7 +34,8 @@ const Page = () => {
       <IntroductionSection data={introductionData} />
       <VideoSection src={videoData.videoUrl} poster={videoData.videoPoster} />
       <StatsSection data={statsData} />
-      <ServiceSection data={serviceData} pageHeading={false} />
+      <ServiceSection data={featuredServices} pageHeading={false} showViewAll />
+      
       <WhyChooseUsSection data={whyChooseUsData} />
       <FeaturesSection data={introductionData} />
       <TestimonialsSection data={sampleTestimonials} />

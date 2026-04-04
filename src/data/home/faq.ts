@@ -31,6 +31,11 @@ export const faqData: FAQSectionData = {
       id: 6,
       question: "Do you accept dental insurance?",
       answer: "Yes, we accept most major dental insurance plans. Our team will work with your insurance provider to maximize your benefits and help you understand your coverage options."
+    },
+    {
+      id: 7,
+      question: "Do you offer EMI or flexible payment options?",
+      answer: "Yes, we offer EMI (Easy Monthly Installment) options for selected treatments to make dental care more affordable. Our team will guide you through the available plans and help you choose a payment option that suits your budget."
     }
   ]
 }

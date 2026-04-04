@@ -7,14 +7,16 @@ import HeroActions from '../home/heroSection/HeroActions'
 import { ServiceData } from '@/data/service/service'
 import ServiceCard from './ServiceCard'
 import { MotionProps } from 'framer-motion'
+import Link from "next/link";
 
 interface ServiceSectionProps {
   data: ServiceData;
   pageHeading?: boolean;
+  showViewAll?: boolean;
   animate?: MotionProps
 }
 
-const ServiceSection = ({ data, pageHeading, animate }: ServiceSectionProps) => {
+const ServiceSection = ({ data, pageHeading, showViewAll, animate }: ServiceSectionProps) => {
   return (
     <div>
       <ContentContainer className='items-center justify-center space-y-8'>
@@ -25,12 +27,12 @@ const ServiceSection = ({ data, pageHeading, animate }: ServiceSectionProps) => 
         >
           {data.heading}
         </PageHeading>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-stretch">
           {data.cards.map((card, index) => (
             <div
-              key={index}
-              className="flex flex-col items-start text-left gap-16"
-            >
+  key={index}
+  className="h-full"
+>
               <ServiceCard
                 icon={card.icon}
                 title={card.title}
@@ -39,10 +41,20 @@ const ServiceSection = ({ data, pageHeading, animate }: ServiceSectionProps) => 
                 rating={card.rating}
                 id={card.id}
                 motionProps={animate}
-              />
+              />             
             </div>
           ))}
         </div>
+        {showViewAll && (
+        <div className="mt-12 flex justify-center">
+          <Link href="/servicePage">
+            <button className="px-6 py-3 rounded-xl bg-primary text-white font-medium hover:bg-primary/90 transition-all duration-300 shadow-md">
+              View All Services
+            </button>
+          </Link>
+        </div>
+      )}
+        
       </ContentContainer>
     </div>
   )

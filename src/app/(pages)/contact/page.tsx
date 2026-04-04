@@ -110,7 +110,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-gray-900">Clinic Addresses</h3>
                     <address className="text-gray-600 mt-1 not-italic">
-                      I. Kenikarai,<br />
+                      I. Main: Kenikarai Bus Stop,<br />
                       Thiruvarur Main Road,<br />
                       Mayiladuthurai - 609001
                     </address>
@@ -209,7 +209,7 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       className="w-full"
-                      placeholder="John"
+                      placeholder="Vijay"
                     />
                   </div>
                   <div className="space-y-2">
@@ -223,7 +223,7 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       className="w-full"
-                      placeholder="Doe"
+                      placeholder="Raghavan"
                     />
                   </div>
                 </div>
@@ -241,7 +241,7 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       className="w-full"
-                      placeholder="john@example.com"
+                      placeholder="abc@gmail.com"
                     />
                   </div>
                   <div className="space-y-2">
@@ -255,7 +255,7 @@ export default function ContactPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full"
-                      placeholder="+1 (555) 123-4567"
+                      placeholder="98765 43210"
                     />
                   </div>
                 </div>

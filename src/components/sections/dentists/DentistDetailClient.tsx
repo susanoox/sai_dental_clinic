@@ -9,7 +9,10 @@ interface DentistDetailClientProps {
     dentist: DentistData
     relatedDentists: DentistData[]
 }
-
+function handleBookNow() {
+    const url = `https://wa.me/${8122835737}?text=${encodeURIComponent("Hi, I'd like to book now!")}`
+    window.open(url, "_blank")
+  }
 export default function DentistDetailClient({ dentist, relatedDentists }: DentistDetailClientProps) {
     return (
         <>
@@ -79,7 +82,7 @@ export default function DentistDetailClient({ dentist, relatedDentists }: Dentis
                                     </div>
                                 </div>
                             </div>
-                            <button className="mt-6 w-full px-4 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                            <button className="mt-6 w-full px-4 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-300" onClick={handleBookNow}>
                                 Book Appointment
                             </button>
                         </div>
