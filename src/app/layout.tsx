@@ -9,16 +9,26 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import GoogleReviews from "@/components/common-ui/google-reviews/GoogleReviews"
 import ContactSection from '@/components/common-ui/contactForm/ContactSection'
-import { WhatsAppFloat} from '@/components/common-ui/whatsappfloat/WhatsappFloat'
+//import { WhatsAppFloat} from '@/components/common-ui/whatsappfloat/WhatsappFloat'
 import SubscribeSection from '@/components/sections/subscribe/SubscribeSection'
 import GoogleBusinessQR from '@/components/common-ui/businessqr/GoogleBusinessQR'
 import { contactLocations } from '@/data/contact/contact'
 import { subscribeData } from '@/data/home/subscribe'
+//import { ChatBotFloat } from "@/components/common-ui/chatbot/ChatBotFloat";
+import dynamic from "next/dynamic"
 // export const metadata: Metadata = {
 //   title: "SAI Dental Clinic - Your Smile, Our Passion",
 //   description: "Professional dental care with 70+ years of experience in Mayiladuthurai and Nidur",
 // };
+const ChatBotFloat = dynamic(
+  () => import("@/components/common-ui/chatbot/ChatBotFloat").then(m => m.ChatBotFloat),
+  { ssr: false }
+)
 
+const WhatsAppFloat = dynamic(
+  () => import("@/components/common-ui/whatsappfloat/WhatsappFloat").then(m => m.WhatsAppFloat),
+  { ssr: false }
+)
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -40,11 +50,15 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Header />
-        <main className="px-4 sm:px-6 lg:px-0 pb-24">{children}</main>
-        <WhatsAppFloat />
+        <main className="">{children}</main>
+
+            <div id="floating-root">
+  <ChatBotFloat />
+</div>
+            {/*<WhatsAppFloat />*/}
+
          <GoogleReviews />
          <ContactSection locations={contactLocations} />
-      {/*<SubscribeSection data={subscribeData} need to create function for this*/}
       <GoogleBusinessQR />
         <Footer />
       </body>

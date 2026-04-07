@@ -38,14 +38,14 @@ const galleryImagesData: GalleryImageData[] = [
   },
   {
     id: 3,
-    src: "/images/gallery/gallery3.jpg",
+    src: "/images/clinic/clinic4.webp",
     alt: "Patient waiting area",
     emoji: "💺",
     className: "h-[300px] lg:h-[315px]",
   },
   {
     id: 4,
-    src: "/images/dentist/dentistchair.webp",
+    src: "/images/clinic/clinic5.webp",
     alt: "Treatment room setup",
     emoji: "🦷",
     className: "h-[500px] lg:h-[650px]",
