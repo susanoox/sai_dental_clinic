@@ -33,15 +33,22 @@ const AppointmentItem = ({ item, reverse = false }: AppointmentItemProps) => {
     transition: { duration: 0.8, ease: "easeOut" }
   };
 
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+  // AppointmentItem.tsx — Fixed
 
-      {/* 🖼️ Image Section (Hero style) */}
+return (
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+    {/* 🖼️ Image Section */}
+    {/* ✅ Plain div is the grid child — never gets transformed */}
+    <div
+      className={cn(
+        "relative aspect-square w-full max-w-xl mx-auto",
+        reverse ? "md:order-2" : "md:order-1"
+      )}
+    >
+      {/* ✅ motion.div is now a non-grid child — safe to transform */}
       <motion.div
-        className={cn(
-          "relative aspect-square w-full max-w-xl mx-auto",
-          reverse ? "md:order-2" : "md:order-1"
-        )}
+        className="w-full h-full"
         {...imageAnimation}
       >
         <Image
@@ -53,15 +60,19 @@ const AppointmentItem = ({ item, reverse = false }: AppointmentItemProps) => {
           sizes="(max-width: 768px) 100vw, 50vw"
         />
       </motion.div>
+    </div>
 
-      {/* 📝 Content Section */}
+    {/* 📝 Content Section */}
+    <div
+      className={cn(
+        "flex flex-col justify-center space-y-6 w-full max-w-xl mx-auto",
+        reverse ? "md:order-1" : "md:order-2"
+      )}
+    >
       <motion.div
-  className={cn(
-    "flex flex-col justify-center space-y-6 w-full max-w-xl mx-auto",
-    reverse ? "md:order-1" : "md:order-2"
-  )}
-  {...contentAnimation}
->
+        className="flex flex-col space-y-6"
+        {...contentAnimation}
+      >
         <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
           {item.title}
         </h3>
@@ -79,9 +90,10 @@ const AppointmentItem = ({ item, reverse = false }: AppointmentItemProps) => {
           ))}
         </ul>
       </motion.div>
-
     </div>
-  );
+
+  </div>
+);
 };
 
 export default AppointmentItem;
