@@ -29,7 +29,7 @@ import { subscribeData } from '@/data/home/subscribe'
 import { featuredServices } from '@/data/service/featuredServices'
 const Page = () => {
   return (
-    <>
+<main className="">
       <HeroSection data={heroSectionData} />
       <IntroductionSection data={introductionData} />
       <VideoSection src={videoData.videoUrl} poster={videoData.videoPoster} />
@@ -42,7 +42,7 @@ const Page = () => {
       <AppointmentSection data={appointmentData} />
       <BlogsSection data={blogsData} />
       <FAQSection data={faqData} />
-      </>
+      </main>
   )
 }
 

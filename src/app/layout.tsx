@@ -37,7 +37,7 @@ export default function RootLayout({
   const pathname = usePathname();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo(0, 0);  
   }, [pathname]);
 
   return (
@@ -50,11 +50,13 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Header />
-        <main className="">{children}</main>
+        <main className="px-4 sm:px-0 w-full">
+        {children}
+      </main>
 
-            <div id="floating-root">
+
   <ChatBotFloat />
-</div>
+
             {/*<WhatsAppFloat />*/}
 
          <GoogleReviews />

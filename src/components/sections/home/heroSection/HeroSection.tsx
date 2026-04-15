@@ -40,47 +40,70 @@ useEffect(() => {
   }, 2500);
 }, []);
     return (
-        <section className={cn("", wrapperClassName)}>
+        <section className={cn("min-h-[100svh] flex items-center", wrapperClassName)}>
             <ContentContainer className="md:py-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <div className="space-y-8">
-                        <SectionTitleText motionProps={{ animate: { opacity: 1, y: 0 } }}>{data?.sectionTitle}</SectionTitleText>
-                        <PageHeading motionProps={{ animate: { opacity: 1, y: 0 } }}>{data.heading}</PageHeading>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
+                    <div className="space-y-5 md:space-y-6">
+                        <SectionTitleText className="text-md sm:text-sm md:text-base lg:text-xl xl:text-2xl tracking-[0.2em]" motionProps={{
+  initial: false,
+  animate: { opacity: 1, y: 0 }
+}}>{data?.sectionTitle}</SectionTitleText>
+                        <PageHeading
+  motionProps={{
+  initial: false,
+  animate: { opacity: 1, y: 0 }
+}}
+  className="font-['Oswald'] text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-wide leading-[1.05] text-blue-700"
+>
+  Sai Dental <br className="block md:hidden" /> Clinic
+</PageHeading>
+
+           
                         {data.content.map((text, index) => (
-                            <ContentText key={index} motionProps={{ animate: { opacity: 1, y: 0 } }}>{text} </ContentText>
+                            <ContentText key={index} motionProps={{
+  initial: false,
+  animate: { opacity: 1, y: 0 }
+}}>{text} </ContentText>
                         ))}
 
                         <HeroActions
                             buttonText={data.buttonText}
                             contactLabel="Contact us"
                             phoneNumber={data.phone}
-                            motionProps={{ animate: { opacity: 1, y: 0 } }}
+                            motionProps={{
+  initial: false,
+  animate: { opacity: 1, y: 0 }
+}}
                         />
                     </div>
 
                     <div
-                        className={cn(
-                            "relative aspect-square w-full max-w-xl mx-auto",
-                            rightImageClassName
-                        )}
-                    >
-                        <div className="relative w-full flex items-center justify-center">
-
+  className={cn(
+    "relative w-full max-w-md lg:max-w-lg mx-auto",
+    rightImageClassName
+  )}
+>
   {/* Image */}
   <HeroImage
     src={data.image}
     alt={data.heading}
-    motionProps={{ animate: { opacity: 1, y: 0 } }}
+    motionProps={{
+  initial: false,
+  animate: { opacity: 1, y: 0 }
+}}
+    className="w-full h-auto max-h-[280px] sm:max-h-[320px] md:max-h-[360px] lg:max-h-[380px] object-contain"
   />
 
-  {/* Intro Animation 
-  {showAnimation && (
-    <div className="absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-sm z-10">
-      <ToothAnimation className="w-40 h-40 md:w-56 md:h-56" />
-    </div>
-  )}*/}
+  {/* ✅ BIG SUBHEADING BELOW IMAGE */}
+  <div className="mt-4 text-center px-2">
+    <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-700 leading-tight">
+      Dr. Srinivas S K
+    </p>
+    <p className="text-xs sm:text-sm md:text-base text-gray-600 mt-1">
+      BDS, FDS (Endodontics) • RCT Specialist
+    </p>
+  </div>
 </div>
-                    </div>
                 </div>
             </ContentContainer>
         </section>

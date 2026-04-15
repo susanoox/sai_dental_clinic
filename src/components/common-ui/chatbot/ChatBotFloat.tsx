@@ -63,18 +63,20 @@ export function ChatBotFloat() {
   const [usedChips, setUsedChips] = useState<Set<string>>(new Set())
   const [waMessage, setWaMessage] = useState("")
   const bottomRef = useRef<HTMLDivElement>(null)
-  const [mounted, setMounted] = useState(false)
-
+  useEffect(() => {
+  requestAnimationFrame(() => {
+    window.scrollBy(0, 1);
+    window.scrollBy(0, -1);
+  });
+}, []);
   // Auto-scroll to bottom on new messages
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" })
   }, [messages, chatOpen])
+  
+  
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
 
-  if (!mounted) return null
   function pushMessage(from: "bot" | "user", text: string) {
     if (from === "bot") {
       const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi, I have a question about Sai Dental Clinic")}`
@@ -124,7 +126,7 @@ export function ChatBotFloat() {
 
   const remainingChips = FAQ_CHIPS.filter((c) => !usedChips.has(c))
 
-  return createPortal(
+  return(
     <>
       {/* ── Chatbot Panel ── */}
       <AnimatePresence>
@@ -135,7 +137,7 @@ export function ChatBotFloat() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.22, ease: "easeOut" }}
             className="fixed bottom-[9.5rem] right-4 md:right-6 z-50 w-[92vw] max-w-sm flex flex-col rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-white"
-            style={{ maxHeight: "70vh", transform: 'translateZ(0)', willChange: 'transform' }}
+
           >
             {/* Header */}
             <div className="flex items-center justify-between bg-green-500 px-4 py-3 shrink-0">
@@ -253,7 +255,7 @@ export function ChatBotFloat() {
             exit={{ opacity: 0, y: 16, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
             className="fixed bottom-24 right-4 md:right-6 w-[90vw] max-w-xs z-50 rounded-2xl overflow-hidden shadow-2xl border border-border bg-background"
-            style={{ transform: 'translateZ(0)', willChange: 'transform' }}
+
           >
             <div className="flex items-center justify-between bg-green-500 px-4 py-3">
               <div className="flex items-center gap-2">
@@ -297,7 +299,7 @@ export function ChatBotFloat() {
       {/* ── Floating Buttons ── */}
 <div
   className="fixed bottom-6 right-4 md:right-6 flex flex-col items-end gap-3"
-  style={{ zIndex: 2147483647, transform: 'translateZ(0)', willChange: 'transform' }}
+
 >
 
         {/* Chatbot button */}
@@ -361,7 +363,6 @@ export function ChatBotFloat() {
           </AnimatePresence>
         </motion.button>
       </div>
-    </>,
-    document.body
+    </>
   )
 }
