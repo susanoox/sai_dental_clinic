@@ -1,8 +1,10 @@
+// HeroImage.tsx
 "use client"
 
 import Image from "next/image"
-import { motion, type MotionProps } from "framer-motion"
+import { motion, type MotionProps, useAnimation } from "framer-motion"
 import { cn } from "@/lib/utils"
+import { useEffect, useRef } from "react"
 
 type HeroImageProps = {
   className?: string
@@ -12,13 +14,6 @@ type HeroImageProps = {
   motionProps?: MotionProps
 }
 
-const defaultMotion: MotionProps = {
-  initial: { opacity: 0, scale: 0.70 },
-  whileInView: { opacity: 1, scale: 1 },
-  viewport: { once: true, amount: 0.4 },
-  transition: { duration: 0.8, ease: "easeOut" },
-}
-
 export default function HeroImage({
   className,
   imageClassName,
@@ -26,9 +21,23 @@ export default function HeroImage({
   alt = "Smiling person at a dental clinic",
   motionProps,
 }: HeroImageProps) {
+  const ref = useRef<HTMLDivElement>(null)
+
   return (
     <motion.div
-      {...defaultMotion}
+      ref={ref}
+      initial={{ opacity: 0, scale: 0.70 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, amount: 0.4 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      onAnimationComplete={() => {
+        if (ref.current) {
+          ref.current.style.transform = "none"
+          ref.current.style.willChange = "auto"
+          // Also clear filter/opacity overrides Framer might leave
+          ref.current.style.filter = ""
+        }
+      }}
       {...motionProps}
       className={cn("relative aspect-square w-full max-w-2xl mx-auto", className)}
     >

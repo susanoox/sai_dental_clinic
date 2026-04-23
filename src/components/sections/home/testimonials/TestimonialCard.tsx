@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useCallback, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { ArrowLeftRight } from 'lucide-react'
 
 export interface TestimonialCardData {
   id: number
@@ -21,42 +22,16 @@ interface TestimonialCardProps {
 const TestimonialCard = ({ data, motionProps, className = "" }: TestimonialCardProps) => {
   const [sliderPosition, setSliderPosition] = useState(50)
   const [isDragging, setIsDragging] = useState(false)
+  const [hasInteracted, setHasInteracted] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
+  const isDraggingRef = useRef(false)
 
   const handleSliderMove = useCallback((clientX: number) => {
     if (!containerRef.current) return
-    
     const rect = containerRef.current.getBoundingClientRect()
     const position = ((clientX - rect.left) / rect.width) * 100
     setSliderPosition(Math.max(0, Math.min(100, position)))
   }, [])
-
-  const handleMouseDown = () => {
-    setIsDragging(true)
-  }
-
-  const handleMouseUp = () => {
-    setIsDragging(false)
-  }
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging) return
-    handleSliderMove(e.clientX)
-  }
-
-  const handleTouchStart = () => {
-    setIsDragging(true)
-  }
-
-  const handleTouchEnd = () => {
-    setIsDragging(false)
-  }
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!isDragging) return
-    const touch = e.touches[0]
-    handleSliderMove(touch.clientX)
-  }
 
   // Update CSS variables when sliderPosition changes
   useEffect(() => {
@@ -66,20 +41,62 @@ const TestimonialCard = ({ data, motionProps, className = "" }: TestimonialCardP
     }
   }, [sliderPosition])
 
-  // Add global mouse up listener to stop dragging
+  // Hint animation on mount — nudge slider slightly to show it's interactive
   useEffect(() => {
-    const handleGlobalMouseUp = () => {
+    if (hasInteracted) return
+    const timer = setTimeout(() => {
+      setSliderPosition(38)
+      setTimeout(() => setSliderPosition(62), 400)
+      setTimeout(() => setSliderPosition(50), 800)
+    }, 800)
+    return () => clearTimeout(timer)
+  }, [hasInteracted])
+
+  // Global mouse events
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!isDraggingRef.current) return
+      handleSliderMove(e.clientX)
+    }
+    const handleMouseUp = () => {
+      if (!isDraggingRef.current) return
+      isDraggingRef.current = false
       setIsDragging(false)
     }
-
-    document.addEventListener('mouseup', handleGlobalMouseUp)
-    document.addEventListener('touchend', handleGlobalMouseUp)
-
+    document.addEventListener('mousemove', handleMouseMove)
+    document.addEventListener('mouseup', handleMouseUp)
     return () => {
-      document.removeEventListener('mouseup', handleGlobalMouseUp)
-      document.removeEventListener('touchend', handleGlobalMouseUp)
+      document.removeEventListener('mousemove', handleMouseMove)
+      document.removeEventListener('mouseup', handleMouseUp)
     }
-  }, [])
+  }, [handleSliderMove])
+
+  // Global touch events with passive: false to prevent scroll hijack
+  useEffect(() => {
+    const handleTouchMove = (e: TouchEvent) => {
+      if (!isDraggingRef.current) return
+      e.preventDefault()
+      const touch = e.touches[0]
+      handleSliderMove(touch.clientX)
+    }
+    const handleTouchEnd = () => {
+      if (!isDraggingRef.current) return
+      isDraggingRef.current = false
+      setIsDragging(false)
+    }
+    document.addEventListener('touchmove', handleTouchMove, { passive: false })
+    document.addEventListener('touchend', handleTouchEnd)
+    return () => {
+      document.removeEventListener('touchmove', handleTouchMove)
+      document.removeEventListener('touchend', handleTouchEnd)
+    }
+  }, [handleSliderMove])
+
+  const startDrag = () => {
+    isDraggingRef.current = true
+    setIsDragging(true)
+    setHasInteracted(true)
+  }
 
   return (
     <motion.div
@@ -87,49 +104,64 @@ const TestimonialCard = ({ data, motionProps, className = "" }: TestimonialCardP
       className={`bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 ${className}`}
     >
       {/* Before/After Image Comparison */}
-      <div 
+      <div
         ref={containerRef}
         className="relative h-64 bg-white overflow-hidden select-none [--slider-position:50%] [--after-width:50%]"
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseUp}
-        onTouchMove={handleTouchMove}
+        // Allow clicking anywhere on the image to jump the slider there
+        onMouseDown={(e) => { startDrag(); handleSliderMove(e.clientX) }}
+        onTouchStart={(e) => { startDrag(); handleSliderMove(e.touches[0].clientX) }}
       >
-        {/* Before Image - Full Width */}
+        {/* Before Image */}
         <div className="absolute inset-0 w-full">
-          <img 
-            src={data.beforeImage} 
+          <img
+            src={data.beforeImage}
             alt="Before treatment"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover pointer-events-none"
+            draggable={false}
           />
           <div className="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 rounded-md text-sm font-semibold">
             BEFORE
           </div>
         </div>
 
-        {/* After Image - Dynamic Width using CSS variable */}
-        <div 
-          className="absolute inset-y-0 right-0 overflow-hidden w-[var(--after-width,50%)]"
-        >
-          <img 
-            src={data.afterImage} 
+        {/* After Image */}
+        <div className="absolute inset-y-0 right-0 overflow-hidden w-[var(--after-width,50%)]">
+          <img
+            src={data.afterImage}
             alt="After treatment"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover pointer-events-none"
+            draggable={false}
           />
           <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-md text-sm font-semibold">
             AFTER
           </div>
         </div>
 
-        {/* Slider Line - Only this is draggable */}
-        <div 
-          className="absolute top-0 bottom-0 w-1 bg-white cursor-col-resize flex items-center justify-center z-10 left-[var(--slider-position,50%)]"
-          onMouseDown={handleMouseDown}
-          onTouchStart={handleTouchStart}
+        {/* Slider Line */}
+        <div
+          className="absolute top-0 bottom-0 w-0.5 bg-white z-10 pointer-events-none left-[var(--slider-position,50%)]"
         >
-          <div className={`w-3 h-8 bg-white rounded-full shadow-lg transition-transform duration-200 ${
-            isDragging ? 'scale-110' : 'scale-100'
-          }`}></div>
+          {/* Drag Handle */}
+          <div
+            className={`absolute top-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col items-center justify-center gap-1
+              w-10 h-10 rounded-full bg-white shadow-[0_2px_12px_rgba(0,0,0,0.3)] border-2 border-white
+              cursor-col-resize transition-transform duration-150 pointer-events-auto
+              ${isDragging ? 'scale-110' : 'scale-100'}`}
+            onMouseDown={(e) => { e.stopPropagation(); startDrag() }}
+            onTouchStart={(e) => { e.stopPropagation(); startDrag() }}
+          >
+            <ArrowLeftRight className="w-4 h-4 text-gray-700 stroke-[2.5]" />
+          </div>
         </div>
+
+        {/* "Slide to compare" hint — fades out after first interaction */}
+        {!hasInteracted && (
+          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 pointer-events-none">
+            <div className="bg-black/60 text-white text-xs px-3 py-1.5 rounded-full whitespace-nowrap backdrop-blur-sm animate-pulse">
+              ← Slide to compare →
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Testimonial Text */}

@@ -54,8 +54,8 @@ export const dentistsData: DentistsSectionData = {
       bio: "Dr. Srinivas is a qualified Dental Surgeon (BDS, FDS in Endodontics - Hyderabad) with extensive experience in comprehensive dental care. He specializes in root canal treatments, oral prophylaxis (scaling and cleaning), and dental extractions, delivering precise and comfortable care to patients of all ages. With a strong focus on clinical excellence and patient comfort, Dr. Srinivas combines advanced techniques with a gentle approach to ensure long-lasting oral health and confident smiles. ",
       experience: "5+ Years",
       education: "Indira Gandhi Institute of Dental Science, Pondicherry, Senior Internship (Special training @TMC)",
-      email: "saident@example.com",
-      phone: "(91) 987-3210",
+      email: "saisri.dentalcare@gmai;.com",
+      phone: "+91 8122835737, +91 8903157201",
       locations: [
       {
         city: "Mayiladuthurai, TN",
@@ -77,21 +77,22 @@ export const dentistsData: DentistsSectionData = {
       ],
 
       availability: [
-        "Sun–Sat, 10:00 AM – 4:00 PM",
-        "Sun–Sat, 6:00 PM – 9:00 PM"
+        "Sun–Sat, 10:00 AM – 3:00 PM",
+        "Sun–Sat, 5:00 PM – 09:30 PM"
       ],
 
       specialties: [
-        "Specialist in veneers, whitening, and smile makeovers",
-        "Successfully completed over 1,200 cosmetic cases",
-        "Certified in advanced dental aesthetics",
-        "Regularly attends global conferences on cosmetic dentistry",
-        "Featured in dental journals for innovative techniques"
+        "Specialist in root canal treatments and endodontic procedures",
+        "Expert in oral prophylaxis (scaling and cleaning)",
+        "Skilled in painless dental extractions",
+        "Focused on patient comfort with gentle treatment approaches",
+        "Committed to long-term oral health and preventive care"
       ],
       achievements: [
-        "Best Cosmetic Dentist Award 2023",
-        "Member of American Academy of Cosmetic Dentistry",
-        "Published 5 research papers in dental journals"
+        "Active member of the Indian Dental Association (IDA)",
+        "Trusted by a growing base of satisfied patients for quality dental care",
+        "Recognized for delivering consistent, patient-focused treatment outcomes",
+        "Known for maintaining high standards in hygiene and clinical excellence"
       ],
       featured: true
     },

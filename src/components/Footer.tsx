@@ -28,7 +28,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white">
       {/* Main Footer Content */}
-      <ContentContainer className="py-12">
+      <ContentContainer className="py-12 px-4 sm:px-0">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           
           {/* Clinic Info */}
@@ -69,7 +69,7 @@ const Footer = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="ml-12" 
+            className="md:ml-12"
           >
             <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
             <ul className="space-y-2">
@@ -93,7 +93,7 @@ const Footer = () => {
   transition={{ duration: 0.5, delay: 0.2 }}
   className="lg:col-span-2"
 >
-  <h4 className="text-lg font-semibold mb-4 text-white pl-40">Our Services</h4>
+  <h4 className="text-lg font-semibold mb-4 text-white md:pl-40">Our Services</h4>
   <ul className="grid grid-cols-2 gap-x-6 gap-y-2">
     {serviceData.cards.map((service) => (
       <li key={service.id}>
@@ -150,7 +150,7 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-800">
-        <ContentContainer className="py-6">
+        <ContentContainer className="py-6 px-4 sm:px-0">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm">
               © {currentYear} SAI Dental Clinic. All Rights Reserved.
