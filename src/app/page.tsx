@@ -1,3 +1,4 @@
+"use client"
 import HeroSection from '@/components/sections/home/heroSection/HeroSection'
 import IntroductionSection from '@/components/sections/home/introduction/IntroductionSection'
 import VideoSection from '@/components/sections/home/video/VideoSection' 
@@ -27,6 +28,12 @@ import { contactData } from '@/data/home/contact'
 import { contactLocations } from '@/data/contact/contact'
 import { subscribeData } from '@/data/home/subscribe'
 import { featuredServices } from '@/data/service/featuredServices'
+import dynamic from "next/dynamic";
+
+const ChatBotFloat = dynamic(
+  () => import("@/components/common-ui/chatbot/ChatBotFloat").then((m) => m.ChatBotFloat),
+  { ssr: false }
+);
 const Page = () => {
   return (
 <main className="">
@@ -35,13 +42,13 @@ const Page = () => {
       <VideoSection src={videoData.videoUrl} poster={videoData.videoPoster} />
       <StatsSection data={statsData} />
       <ServiceSection data={featuredServices} pageHeading={false} showViewAll />
-      
       <WhyChooseUsSection data={whyChooseUsData} />
       <FeaturesSection data={introductionData} />
       <TestimonialsSection data={sampleTestimonials} />
       <AppointmentSection data={appointmentData} />
       <BlogsSection data={blogsData} />
       <FAQSection data={faqData} />
+      <ChatBotFloat />
       </main>
   )
 }

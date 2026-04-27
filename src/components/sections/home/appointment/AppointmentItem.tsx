@@ -20,19 +20,18 @@ interface AppointmentItemProps {
 const AppointmentItem = ({ item, reverse = false }: AppointmentItemProps) => {
 
   const imageAnimation = {
-    initial: { opacity: 0, x: reverse ? 100 : -100 },
-    whileInView: { opacity: 1, x: 0 },
-    viewport: { once: true, margin: "-50px" },
-    transition: { duration: 0.8, ease: "easeOut" }
-  };
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-50px" },
+  transition: { duration: 0.6, ease: "easeOut" }
+};
 
-  const contentAnimation = {
-    initial: { opacity: 0, x: reverse ? -100 : 100 },
-    whileInView: { opacity: 1, x: 0 },
-    viewport: { once: true, margin: "-50px" },
-    transition: { duration: 0.8, ease: "easeOut" }
-  };
-
+const contentAnimation = {
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-50px" },
+  transition: { duration: 0.6, ease: "easeOut" }
+};
   // AppointmentItem.tsx — Fixed
 
 return (

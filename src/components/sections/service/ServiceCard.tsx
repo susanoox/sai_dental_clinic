@@ -42,7 +42,7 @@ const ServiceCard = ({ icon, id , title, description, className, motionProps, im
             whileHover={{ y: -4, scale: 1.01 }}
             whileTap={{ scale: 0.99 }}
             className={cn(
-  "h-[320px] flex flex-col justify-between items-start text-left gap-4 border border-black md:border-none p-3 md:p-0 rounded-md hover:cursor-pointer",
+  "h-[320px] flex flex-col justify-between items-start text-left gap-4  md:border-none p-3 md:p-0 rounded-md hover:cursor-pointer",
   className
 )}
             onClick={() => handleNavigateDeatilsPage(id)}
