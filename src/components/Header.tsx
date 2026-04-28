@@ -58,13 +58,13 @@ const Header = () => {
               className="flex items-center gap-3"
             >
               {/* Logo image */}
-              <div className={`${primaryBg} p-1.5 rounded-lg flex-shrink-0`}>
+              <div className="w-9 h-9 rounded-lg overflow-hidden flex-shrink-0">
                 <Image
                   src="/icon.png"
                   alt="SAI Dental Clinic Logo"
                   width={36}
                   height={36}
-                  className="object-contain"
+                  className="rounded-lg object-contain w-full h-full"
                 />
               </div>
 
