@@ -6,30 +6,16 @@ import { X } from "lucide-react";
 import Image, { type StaticImageData } from "next/image";
 import { cn } from "@/lib/utils";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
-
 export type NoticePopupProps = {
-  /** Image src — can be a local import (StaticImageData) or a URL string */
   imageSrc: string | StaticImageData;
-  /** Alt text for the image (for accessibility) */
   imageAlt?: string;
-  /**
-   * Unique key used to remember if the user has dismissed this notice.
-   * Change it whenever you post a new notice so it shows again.
-   * Example: "notice-5th-anniversary-2025"
-   */
   storageKey?: string;
-  /** If true, the popup will always show, even if the user dismissed it before */
   alwaysShow?: boolean;
-  /** Delay in ms before the popup appears. Default: 800 */
   delay?: number;
-  /** Optional extra class names on the backdrop */
   backdropClassName?: string;
-  /** Optional extra class names on the modal panel */
   panelClassName?: string;
+  onClose?: () => void;   // ← already in your type, good
 };
-
-// ─── Component ────────────────────────────────────────────────────────────────
 
 export default function NoticePopup({
   imageSrc,
@@ -39,6 +25,7 @@ export default function NoticePopup({
   delay = 800,
   backdropClassName,
   panelClassName,
+  onClose,               // ← destructure it
 }: NoticePopupProps) {
   const [visible, setVisible] = useState(false);
 
@@ -47,25 +34,22 @@ export default function NoticePopup({
       try {
         const dismissed = localStorage.getItem(storageKey);
         if (dismissed === "true") return;
-      } catch {
-        // localStorage not available (SSR / private browsing) — show anyway
-      }
+      } catch {}
     }
-
     const timer = setTimeout(() => setVisible(true), delay);
     return () => clearTimeout(timer);
   }, [alwaysShow, delay, storageKey]);
 
   function close() {
-    setVisible(false);
-    try {
-      localStorage.setItem(storageKey, "true");
-    } catch {
-      // ignore
-    }
+  setVisible(false);
+  try {
+    localStorage.setItem(storageKey, "true");
+  } catch {
+    // ignore
   }
+  onClose?.();      // ← ADD THIS
+}
 
-  // Close on Escape key
   useEffect(() => {
     if (!visible) return;
     const handler = (e: KeyboardEvent) => {
@@ -79,7 +63,6 @@ export default function NoticePopup({
     <AnimatePresence>
       {visible && (
         <>
-          {/* ── Backdrop ── */}
           <motion.div
             key="notice-backdrop"
             initial={{ opacity: 0 }}
@@ -94,7 +77,6 @@ export default function NoticePopup({
             )}
           />
 
-          {/* ── Panel ── */}
           <motion.div
             key="notice-panel"
             role="dialog"
@@ -105,16 +87,12 @@ export default function NoticePopup({
             exit={{ opacity: 0, scale: 0.94, y: 16 }}
             transition={{ type: "spring", stiffness: 320, damping: 28 }}
             className={cn(
-              // Positioning
               "fixed inset-0 z-50 m-auto",
-              // Size — fills most of the viewport on mobile, constrained on desktop
               "h-fit w-[calc(100vw-2rem)] max-w-2xl",
-              // Card style
               "overflow-hidden rounded-2xl bg-white shadow-2xl",
               panelClassName
             )}
           >
-            {/* Close button */}
             <button
               onClick={close}
               aria-label="Close notice"
@@ -129,7 +107,6 @@ export default function NoticePopup({
               <X size={18} strokeWidth={2.5} />
             </button>
 
-            {/* Notice image */}
             <div className="relative w-full">
               <Image
                 src={imageSrc}
