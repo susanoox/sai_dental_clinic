@@ -43,7 +43,7 @@ body::-webkit-scrollbar {
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 213 100% 98%; 
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -108,4 +108,17 @@ body::-webkit-scrollbar {
   html{
     font-size: 0.875rem;
   }
+}
+
+/* ── Dental clinic grid background ── */
+body {
+  background-color: #f8faff;
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.07) 1px, transparent 1px),
+    linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+  background-size: 80px 80px, 80px 80px, 20px 20px, 20px 20px;
+  background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+  background-attachment: fixed;
 }
