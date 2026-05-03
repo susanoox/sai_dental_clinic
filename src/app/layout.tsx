@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { poppins } from "@/utils/font";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import GoogleReviews from "@/components/common-ui/google-reviews/GoogleReviews";
 import ContactSection from "@/components/common-ui/contactForm/ContactSection";
@@ -14,8 +14,8 @@ import { contactLocations } from "@/data/contact/contact";
 import { subscribeData } from "@/data/home/subscribe";
 import dynamic from "next/dynamic";
 import NoticePopup from "@/components/common-ui/notice/NoticePopup";
+import CelebrationOverlay from "@/components/common-ui/celebration/CelebrationOverlay";
 
-// ── Lazy-loaded floats (no SSR) ──────────────────────────────────────────────
 const ChatBotFloat = dynamic(
   () => import("@/components/common-ui/chatbot/ChatBotFloat").then((m) => m.ChatBotFloat),
   { ssr: false }
@@ -26,36 +26,36 @@ const WhatsAppFloat = dynamic(
   { ssr: false }
 );
 
-// ── Active notice image ──────────────────────────────────────────────────────
-// To post a new notice:
-//   1. Replace the import below with your new image
-//   2. Change ACTIVE_NOTICE_KEY to a new unique string
-//   Users who dismissed the previous notice will see the new one automatically.
-
 const noticeImage = "/images/Notice.webp";
 const ACTIVE_NOTICE_KEY = "notice-5th-anniversary-2025";
-
-// Set to `true` while designing/testing so the popup always shows
 const NOTICE_PREVIEW_MODE = true;
 
-// ── Layout ───────────────────────────────────────────────────────────────────
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   const pathname = usePathname();
+  const [celebrateTrigger, setCelebrateTrigger] = useState(false);
 
-useEffect(() => {
-  const t = setTimeout(() => window.scrollTo(0, 0), 50);
-  return () => clearTimeout(t);
-}, [pathname]);
+  useEffect(() => {
+    const t = setTimeout(() => window.scrollTo(0, 0), 50);
+    return () => clearTimeout(t);
+  }, [pathname]);
+
+  // Called by NoticePopup when the user closes/dismisses the notice
+  const handleNoticeClose = () => {
+    // Small delay so the modal exit animation finishes first
+    setTimeout(() => setCelebrateTrigger(true), 400);
+  };
+
+  const handleCelebrationClose = () => {
+    setCelebrateTrigger(false);
+  };
 
   return (
     <html lang="en">
       <body
         className={cn(
-          "font-poppins min-h-screen bg-background antialiased",
+          "font-poppins min-h-screen antialiased",
           poppins
         )}
         suppressHydrationWarning
@@ -64,24 +64,27 @@ useEffect(() => {
 
         <main className="px-4 sm:px-0 w-full">{children}</main>
 
-
-        {/* <WhatsAppFloat /> */}
-
         <GoogleReviews />
         <ContactSection locations={contactLocations} />
         <GoogleBusinessQR />
         <Footer />
 
-        {/* ── Notice Popup ─────────────────────────────────────────────────
-            Rendered last so it sits above everything in the stacking context.
-            Change `imageSrc` + `storageKey` for each new notice.          */}
         <NoticePopup
           imageSrc={noticeImage}
           imageAlt="Sai Dental Clinic – 5th Anniversary Notice"
           storageKey={ACTIVE_NOTICE_KEY}
           alwaysShow={NOTICE_PREVIEW_MODE}
           delay={1000}
+          onClose={handleNoticeClose}   // ← add this prop
         />
+
+        {/* 🎉 Celebration fires after notice is dismissed */}
+        <CelebrationOverlay
+          trigger={celebrateTrigger}
+          duration={10000}
+          onClose={handleCelebrationClose}
+        />
+
         <div className="fixed bottom-4 right-4 z-[9999] isolate">
           <ChatBotFloat />
         </div>
