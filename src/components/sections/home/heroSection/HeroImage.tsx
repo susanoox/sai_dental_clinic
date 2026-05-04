@@ -39,7 +39,7 @@ export default function HeroImage({
         }
       }}
       {...motionProps}
-      className={cn("relative aspect-square w-full max-w-2xl mx-auto", className)}
+      className={cn("relative aspect-square w-full", className)}
     >
       <Image
         src={src || "/placeholder.svg"}

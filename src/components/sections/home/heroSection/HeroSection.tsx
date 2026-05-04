@@ -59,8 +59,8 @@ export default function HeroSection({
         <section className={cn("", wrapperClassName)}>
 
             {/* ── MOBILE: Text screen (first viewport) ── */}
-            <div className="min-h-[100svh] flex items-center md:hidden">
-                <ContentContainer className="py-10">
+            <div className="flex items-center md:hidden pt-16">
+    <ContentContainer className="pt-4 pb-6">
                     <motion.div
                         variants={containerVariants}
                         initial="hidden"
@@ -117,7 +117,7 @@ export default function HeroSection({
                 whileInView="show"
                 viewport={{ once: true, amount: 0.25 }}
                 variants={imageVariant}
-                className="min-h-[100svh] flex flex-col items-center justify-center md:hidden"
+                className="flex flex-col items-center justify-center md:hidden pb-10"
             >
                 <ContentContainer className="py-10 flex flex-col items-center">
                     <HeroImage
@@ -138,8 +138,8 @@ export default function HeroSection({
             </motion.div>
 
             {/* ── DESKTOP: Two-column layout (md+) ── */}
-            <div className="hidden md:flex min-h-[100svh] items-center">
-                <ContentContainer className="py-10">
+            <div className="hidden md:flex min-h-[calc(100svh-80px)] items-center -mt-0">
+    <ContentContainer className="pt-0 pb-10">
                     <motion.div
                         variants={containerVariants}
                         initial="hidden"
@@ -185,19 +185,20 @@ export default function HeroSection({
                         </div>
 
                         {/* Right — image */}
-                        <motion.div
-                            variants={imageVariant}
-                            className={cn(
-                                "relative w-full max-w-md lg:max-w-lg mx-auto",
-                                rightImageClassName
-                            )}
-                        >
-                            <HeroImage
-                                src={data.image}
-                                alt={data.heading}
-                                motionProps={{ initial: false, animate: { opacity: 1 } }}
-                                className="w-full h-auto max-h-[280px] sm:max-h-[320px] md:max-h-[360px] lg:max-h-[380px] object-contain"
-                            />
+                        {/* Right — image */}
+<motion.div
+    variants={imageVariant}
+    className={cn(
+        "relative w-full",  // ← remove max-w-md, max-w-lg, and mx-auto
+        rightImageClassName
+    )}
+>
+    <HeroImage
+        src={data.image}
+        alt={data.heading}
+        motionProps={{ initial: false, animate: { opacity: 1 } }}
+        className="w-full h-auto max-h-[280px] sm:max-h-[320px] md:max-h-[360px] lg:max-h-[420px] object-contain"
+    />
                             <div className="mt-4 text-center px-2">
                                 <p className="text-3xl md:text-4xl font-bold text-blue-700 leading-tight">
                                     Dr. Srinivas S K
