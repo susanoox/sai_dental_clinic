@@ -17,5 +17,5 @@ export interface HeroSectionData {
     ],
     buttonText: 'Book Appointment',
     phone: '+91 8122835737, +91 8903157201',
-    image: '/images/dentist/dentist4.webp'
+    image: '/images/dentist/oneee.webp'
   };

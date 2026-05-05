@@ -15,7 +15,7 @@ import { subscribeData } from "@/data/home/subscribe";
 import dynamic from "next/dynamic";
 import NoticePopup from "@/components/common-ui/notice/NoticePopup";
 import CelebrationOverlay from "@/components/common-ui/celebration/CelebrationOverlay";
-
+import HiringPopup from "@/components/common-ui/hiring/HiringPopup";
 const ChatBotFloat = dynamic(
   () => import("@/components/common-ui/chatbot/ChatBotFloat").then((m) => m.ChatBotFloat),
   { ssr: false }
@@ -35,7 +35,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   const pathname = usePathname();
   const [celebrateTrigger, setCelebrateTrigger] = useState(false);
-
+  const [showHiring, setShowHiring] = useState(false);
   useEffect(() => {
     const t = setTimeout(() => window.scrollTo(0, 0), 50);
     return () => clearTimeout(t);
@@ -47,9 +47,14 @@ export default function RootLayout({
     setTimeout(() => setCelebrateTrigger(true), 400);
   };
 
-  const handleCelebrationClose = () => {
-    setCelebrateTrigger(false);
-  };
+  
+const handleCelebrationClose = () => {
+  setCelebrateTrigger(false);
+  setShowHiring(true); // ← ADD — fires hiring popup after celebration
+};
+
+
+  
 
   return (
     <html lang="en">
@@ -84,6 +89,12 @@ export default function RootLayout({
           duration={10000}
           onClose={handleCelebrationClose}
         />
+
+        <HiringPopup
+  trigger={showHiring}
+  delay={2000}
+  onClose={() => setShowHiring(false)}
+/>
 
         <div className="fixed bottom-4 right-4 z-[9999] isolate">
           <ChatBotFloat />

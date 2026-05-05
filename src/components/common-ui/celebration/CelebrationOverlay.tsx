@@ -278,7 +278,7 @@ export default function CelebrationOverlay({ trigger, duration = 10000, onClose 
                   color: "rgba(255,255,255,0.9)", textTransform: "uppercase",
                 }}
               >
-                5th Anniversary
+                5th Year Celebration
               </span>
             </div>
 
