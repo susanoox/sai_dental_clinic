@@ -128,7 +128,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">Email Address</h3>
-                    <p className="text-gray-600 mt-1">contact@saidental.com</p>
+                    <p className="text-gray-600 mt-1">support@saidentalmayiladuthurai.com</p>
                     <p className="text-sm text-gray-500 mt-2">Response within 24 hours</p>
                   </div>
                 </div>
@@ -145,7 +145,7 @@ export default function ContactPage() {
                         <span>4:30 PM - 10:00 PM</span>
                       </p>
                       <p className="flex justify-between">
-                        <span>@Needur Sun - Sat</span>
+                        <span>@Needur Sun - Sat:</span>
                         <span>9:30 AM - 3:00 PM</span>
                       </p>
                       {/*<p className="flex justify-between">

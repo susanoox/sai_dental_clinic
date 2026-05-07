@@ -31,7 +31,7 @@ export default function HeroActions({
 }: HeroActionsProps) {
 const ref = useRef<HTMLDivElement>(null)
   function handleBookNow() {
-    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi, I'd like to book now!")}`
+    const url = `https://www.docindia.org/clinics/tn/mayiladuthurai/sai-dental-clinic?rwg_token=AFd1xnFDDyUPoiZmIc7tlrEOilWnIhds7MDRq59KGRekKlQ5hWsq1vODEJvdkMJyhUIlMFjm9OdxLFhLO7Kpw9x4vjJMcu6Fyw%3D%3D&source=cat&ved=2ahUKEwjLvuGlzqeUAxUMzjgGHbwqJn4QnL4JegQIGBAK`
     window.open(url, "_blank")
   }
 
