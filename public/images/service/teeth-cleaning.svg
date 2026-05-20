@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <rect width="600" height="400" fill="#E8F5E9"/>
+  <rect x="0" y="0" width="600" height="400" rx="12" fill="#E8F5E9"/>
+  <circle cx="300" cy="180" r="80" fill="#4CAF50" opacity="0.2"/>
+  <path d="M270 140 C270 120, 330 120, 330 140 L330 180 C330 200, 310 210, 300 220 C290 210, 270 200, 270 180 Z" fill="#4CAF50"/>
+  <path d="M285 140 L285 175" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <path d="M300 135 L300 175" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <path d="M315 140 L315 175" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <path d="M260 185 Q300 195 340 185" stroke="#4CAF50" stroke-width="4" stroke-linecap="round"/>
+  <rect x="220" y="280" width="160" height="24" rx="12" fill="#4CAF50"/>
+  <text x="300" y="297" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Teeth Cleaning</text>
+  <circle cx="200" cy="100" r="6" fill="#81C784"/>
+  <circle cx="400" cy="120" r="4" fill="#81C784"/>
+  <circle cx="150" cy="250" r="5" fill="#81C784"/>
+  <circle cx="450" cy="260" r="7" fill="#81C784"/>
+</svg>
