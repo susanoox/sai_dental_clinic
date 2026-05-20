@@ -2,12 +2,14 @@
 
 import { notFound } from "next/navigation"
 import Link from "next/link"
+import Image from "next/image"
 import { FaCalendar, FaUser, FaClock, FaShareAlt } from "react-icons/fa"
+import { serialize } from "next-mdx-remote/serialize"
 
 import ContentContainer from "@/components/common-ui/containers/ContentContainer"
 
 import { getBlogBySlugRaw, getAllBlogs } from "@/lib/mdx"
-import BlogContent from "@/components/sections/blogs/BlogContent"
+import MDXRenderer from "@/components/mdx/MDXRenderer"
 import PageHeading from "@/components/common-ui/headers/PageHeading"
 
 export async function generateStaticParams() {
@@ -20,24 +22,22 @@ export async function generateStaticParams() {
 interface PageProps {
   params: Promise<{ slug: string }>
 }
-// export const dynamicParams = true;
 
 export default async function BlogDetailPage({ params }: PageProps) {
   const { slug } = await params
 
   const blog = getBlogBySlugRaw(slug)
 
-
   if (!blog) notFound()
+
+  const mdxSource = await serialize(blog.content)
 
   const relatedBlogs = (await getAllBlogs())
     .filter(b => b.slug !== slug)
-
     .slice(0, 3)
 
   return (
     <ContentContainer>
-      {/* Blog Header */}
       <div className="py-12 text-center">
         {blog.category && (
           <span className="inline-block px-4 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-semibold mb-6">
@@ -88,17 +88,39 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
       {blog.image && (
         <div className="mb-12 rounded-xl overflow-hidden">
-          <div className="w-full h-[400px] overflow-hidden">
-            <img
+          <div className="relative w-full h-[200px] sm:h-[300px] md:h-[400px] overflow-hidden">
+            <Image
               src={blog.image}
               alt={blog.title}
-              className="w-full h-full object-cover"
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, 1200px"
+              className="object-cover"
+              priority
             />
           </div>
         </div>
       )}
 
-      <BlogContent content={blog.content} excerpt={blog.excerpt} />
+      <div className="max-w-4xl mx-auto">
+        <div className="prose prose-lg md:prose-xl max-w-none mb-12
+          prose-headings:font-semibold
+          prose-headings:text-gray-900
+          prose-p:text-gray-700
+          prose-p:leading-relaxed
+          prose-ul:space-y-2
+          prose-li:marker:text-blue-500
+          prose-a:text-blue-600
+          prose-strong:text-gray-900
+        ">
+          <div className="mb-10">
+            <p className="text-xl font-medium text-gray-700 leading-relaxed">
+              {blog.excerpt}
+            </p>
+          </div>
+
+          <MDXRenderer source={mdxSource} />
+        </div>
+      </div>
 
       <div className="max-w-4xl mx-auto">
         <div className="py-8 border-t border-b border-gray-200 mb-12">

@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState, use } from "react"
 import MDXRenderer from "@/components/mdx/MDXRenderer"
 import { serialize } from "next-mdx-remote/serialize"
 import type { MDXRemoteSerializeResult } from "next-mdx-remote"
@@ -10,25 +10,13 @@ interface BlogContentProps {
     excerpt: string
 }
 
+async function serializeMdx(content: string): Promise<MDXRemoteSerializeResult> {
+    return serialize(content)
+}
+
 export default function BlogContent({ content, excerpt }: BlogContentProps) {
-    const [mdxSource, setMdxSource] = useState<MDXRemoteSerializeResult | null>(null)
-
-    useEffect(() => {
-        serialize(content).then(setMdxSource)
-    }, [content])
-
-    if (!mdxSource) {
-        return (
-            <div className="max-w-4xl mx-auto">
-                <div className="animate-pulse space-y-4">
-                    <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-                    <div className="h-4 bg-gray-200 rounded"></div>
-                    <div className="h-4 bg-gray-200 rounded w-5/6"></div>
-                </div>
-            </div>
-        )
-    }
-
+    const mdxSourcePromise = serializeMdx(content)
+    
     return (
         <div className="max-w-4xl mx-auto">
             <div className="prose prose-lg md:prose-xl max-w-none mb-12
@@ -47,8 +35,13 @@ export default function BlogContent({ content, excerpt }: BlogContentProps) {
                     </p>
                 </div>
 
-                <MDXRenderer source={mdxSource} />
+                <MDXRendererWrapper sourcePromise={mdxSourcePromise} />
             </div>
         </div>
     )
+}
+
+function MDXRendererWrapper({ sourcePromise }: { sourcePromise: Promise<MDXRemoteSerializeResult> }) {
+    const mdxSource = use(sourcePromise)
+    return <MDXRenderer source={mdxSource} />
 }

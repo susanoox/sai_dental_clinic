@@ -222,7 +222,7 @@ export const serviceData = {
             title: "Teeth Cleaning",
             description: "Professional cleaning to remove plaque and maintain hygiene.",
             rating: 5.0,
-            imgSrc: "/images/service/teeth-cleaning.webp",
+            imgSrc: "/images/service/teeth-cleaning.svg",
             detailsPageData: [
                 {
                     title: "About Service",
@@ -250,7 +250,7 @@ export const serviceData = {
             title: "Dental X-ray",
             description: "Advanced imaging for accurate diagnosis.",
             rating: 5.0,
-            imgSrc: "/images/service/dental-xray.webp",
+            imgSrc: "/images/service/dental-xray.svg",
             detailsPageData: [
                 {
                     title: "About Service",
@@ -278,7 +278,7 @@ export const serviceData = {
             title: "Tooth Filling",
             description: "Restore cavities with durable fillings.",
             rating: 5.0,
-            imgSrc: "/images/service/tooth-filling.webp",
+            imgSrc: "/images/service/tooth-filling.svg",
             detailsPageData: [
                 {
                     title: "About Service",
@@ -334,7 +334,7 @@ export const serviceData = {
             title: "Dentures",
             description: "Custom solutions for replacing missing teeth.",
             rating: 5.0,
-            imgSrc: "/images/service/dentures.webp",
+            imgSrc: "/images/service/dentures.svg",
             detailsPageData: [
                 {
                     title: "About Service",
@@ -390,7 +390,7 @@ export const serviceData = {
             title: "Veneers",
             description: "Enhance your smile with custom-designed veneers.",
             rating: 5.0,
-            imgSrc: "/images/service/veneers.webp",
+            imgSrc: "/images/service/veneers.svg",
             detailsPageData: [
                 {
                     title: "About Service",
@@ -446,7 +446,7 @@ export const serviceData = {
             title: "Gum Shield",
             description: "Protect your teeth during sports and grinding.",
             rating: 5.0,
-            imgSrc: "/images/service/gum-shield.webp",
+            imgSrc: "/images/service/gum-shield.svg",
             detailsPageData: [
                 {
                     title: "About Service",
@@ -502,7 +502,7 @@ export const serviceData = {
             title: "Receding Gums Treatment",
             description: "Restore and protect gum health effectively.",
             rating: 5.0,
-            imgSrc: "/images/service/gum-treatment.webp",
+            imgSrc: "/images/service/gum-treatment.svg",
             detailsPageData: [
                 {
                     title: "About Service",
@@ -588,7 +588,7 @@ export const serviceData = {
     title: "Dental Braces",
     description: "Straighten misaligned teeth with reliable and effective braces treatment.",
     rating: 4.9,
-    imgSrc: "/images/service/dental-braces.webp",
+    imgSrc: "/images/service/dental-braces.svg",
     detailsPageData: [
         {
             title: "About Service",

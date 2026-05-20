@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { FaCalendar, FaClock, FaArrowRight } from "react-icons/fa"
 import { BlogMeta } from "@/lib/mdx"
@@ -10,16 +11,16 @@ export default function AnimatedBlogGrid({ blogs }: { blogs: BlogMeta[] }) {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.2 },
+      transition: { staggerChildren: 0.1 },
     },
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: "easeOut" },
+      transition: { duration: 0.4, ease: "easeOut" },
     },
   }
 
@@ -34,15 +35,17 @@ export default function AnimatedBlogGrid({ blogs }: { blogs: BlogMeta[] }) {
         <motion.div
           key={blog.slug}
           variants={itemVariants}
-          whileHover={{ y: -8, scale: 1.02 }}
         >
           <Link href={`/blogs/${blog.slug}`} className="group block">
             <article className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition h-full">
-              <div className="h-48 overflow-hidden">
-                <img
+              <div className="relative h-48 overflow-hidden">
+                <Image
                   src={blog.image}
                   alt={blog.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover group-hover:scale-105 transition"
+                  loading="lazy"
                 />
               </div>
 

@@ -27,7 +27,7 @@ const FAQ_ANSWERS: Record<string, string> = {
     "You can easily book an appointment by messaging us on WhatsApp or calling our clinic. Tap below to chat with us instantly!",
 
   "What are your clinic hours?":
-    "Our clinic is open Monday–Saturday from 9 AM to 8 PM and Sunday by appointment. Message us on WhatsApp to confirm availability.",
+    "Our clinic is open Sunday-Saturday from 9 AM to 2 PM in Needur and 5 PM to 9.30 PM in Mayiladuthurai. Message us on WhatsApp to confirm availability.",
 
   "Where are you located?":
     "Sai Dental Clinic is located in Mayiladuthurai, Tamil Nadu. Click below to message us on WhatsApp and we’ll share the exact location.",
@@ -36,7 +36,7 @@ const FAQ_ANSWERS: Record<string, string> = {
     "We can guide you regarding insurance claims. Please contact us on WhatsApp and we’ll assist you with the process.",
 
   "How much does a consultation cost?":
-    "Consultation at Sai Dental Clinic starts from ₹200–₹500 depending on the treatment. Message us on WhatsApp for exact details.",
+    "Consultation at Sai Dental Clinic starts from ₹200 depending on the treatment. Message us on WhatsApp for exact details.",
 }
 
 // ─── Types ─────────────────────────────────────────────────────
@@ -136,7 +136,7 @@ export function ChatBotFloat() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.22, ease: "easeOut" }}
-            className="fixed bottom-[9.5rem] right-4 md:right-6 z-50 w-[92vw] max-w-sm flex flex-col rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-white"
+            className="fixed bottom-[9.5rem] right-4 md:right-6 z-50 w-[92vw] max-w-sm h-[28rem] flex flex-col rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-white"
 
           >
             {/* Header */}
