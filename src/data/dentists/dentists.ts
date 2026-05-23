@@ -98,206 +98,95 @@ export const dentistsData: DentistsSectionData = {
     },
     {
       id: 2,
-      name: "Noah Bennett",
-      designation: "Endodontist",
-      image: "/images/dentists/noah-bennett.jpg",
-      slug: "noah-bennett",
-      bio: "Dr. Noah Bennett specializes in endodontic treatments with a focus on pain-free root canal therapy. With 10 years of experience, he uses state-of-the-art technology to ensure comfortable and effective treatment. His gentle approach and expertise make him a favorite among patients with dental anxiety.",
-      experience: "10+ Years",
-      education: "DMD, Harvard School of Dental Medicine",
-      email: "noah.bennett@example.com",
-      phone: "(555) 123-4567",
+      name: "Arun",
+      designation: "Orthodontist",
+      image: "/images/dentists/default.jpg",
+      slug: "arun",
+      bio: "Orthodontist specializing in braces and aligners.",
+      experience: "",
+      education: "",
+      email: "",
+      phone: "",
       locations: [
       {
         city: "Mayiladuthurai, TN",
         address: "Kenikarai, Thiruvarur Main Road, Mayiladuthurai - 609001",
         timing: "5:00 PM – 9:30 PM (Everyday)"
-      },
-      {
-        city: "Needur Branch, Mayiladuthurai, TN",
-        address: "Near Indian Overseas Bank, Main Road, Needur - 609203",
-        mapsLink: "https://maps.app.goo.gl/zE9LDUzpAcBU4KDY9",
-        timing: "10:00 AM – 3:00 PM (Everyday)"
       }
     ],
-
-      location: ["Brooklyn, NY"],
-      availability: ["Mon-Thu, 9:00 AM - 5:00 PM"],
-      specialties: [
-        "Expert in root canal therapy and retreatment",
-        "Utilizes digital imaging for precise diagnosis",
-        "Specializes in treating dental trauma cases",
-        "Trained in microscopic endodontics",
-        "Focus on pain management and patient comfort"
-      ],
-      achievements: [
-        "Board Certified Endodontist",
-        "Fellow of American Association of Endodontists",
-        "Lecturer at national dental conferences"
-      ]
+      location: [],
+      availability: [],
+      specialties: [],
+      achievements: []
     },
     {
       id: 3,
-      name: "Liam Brooks",
-      designation: "Periodontist",
-      image: "/images/dentists/liam-brooks.jpg",
-      slug: "liam-brooks",
-      bio: "Dr. Liam Brooks is a periodontist dedicated to preserving gum health and restoring smiles through advanced periodontal treatments. With 15 years of experience, he combines surgical expertise with regenerative techniques to treat complex gum diseases and place dental implants.",
-      experience: "15+ Years",
-      education: "MSD, University of Washington",
-      email: "liam.brooks@example.com",
-      phone: "(555) 234-5678",
+      name: "Dr. Pugazh",
+      designation: "Periodontist (Laser Gum Surgery)",
+      image: "/images/dentists/default.jpg",
+      slug: "pugazh",
+      bio: "Periodontist specializing in laser gum surgery.",
+      experience: "",
+      education: "",
+      email: "",
+      phone: "",
       locations: [
       {
         city: "Mayiladuthurai, TN",
         address: "Kenikarai, Thiruvarur Main Road, Mayiladuthurai - 609001",
         timing: "5:00 PM – 9:30 PM (Everyday)"
-      },
-      {
-        city: "Needur Branch, Mayiladuthurai, TN",
-        address: "Near Indian Overseas Bank, Main Road, Needur - 609203",
-        mapsLink: "https://maps.app.goo.gl/zE9LDUzpAcBU4KDY9",
-        timing: "10:00 AM – 3:00 PM (Everyday)"
       }
     ],
-
-      location: ["Manhattan, NY"],
-      availability: ["Wed-Sat, 8:00 AM - 6:00 PM"],
-      specialties: [
-        "Expert in gum disease treatment and prevention",
-        "Specializes in dental implant placement",
-        "Trained in laser periodontal therapy",
-        "Performs bone grafting and regeneration",
-        "Focus on minimally invasive procedures"
-      ],
-      achievements: [
-        "Diplomate of American Board of Periodontology",
-        "Published researcher in periodontal regeneration",
-        "Awarded for clinical excellence in periodontics"
-      ],
-      featured: true
+      location: [],
+      availability: [],
+      specialties: [],
+      achievements: []
     },
     {
       id: 4,
-      name: "Michael Reed",
-      designation: "Orthodontist",
-      image: "/images/dentists/michael-reed.jpg",
-      slug: "michael-reed",
-      bio: "Dr. Michael Reed transforms smiles through orthodontic treatments for patients of all ages. With expertise in both traditional braces and clear aligners, he creates personalized treatment plans that achieve optimal results while ensuring patient comfort throughout the process.",
-      experience: "8+ Years",
-      education: "DDS, Columbia University",
-      email: "michael.reed@example.com",
-      phone: "(555) 345-6789",
+      name: "Dr. Vigneshwari",
+      designation: "Oral and Maxillofacial Surgeon (Wisdom Tooth Removal Specialist)",
+      image: "/images/dentists/default.jpg",
+      slug: "vigneshwari",
+      bio: "Oral and maxillofacial surgeon specializing in wisdom tooth removal.",
+      experience: "",
+      education: "",
+      email: "",
+      phone: "",
       locations: [
       {
         city: "Mayiladuthurai, TN",
         address: "Kenikarai, Thiruvarur Main Road, Mayiladuthurai - 609001",
         timing: "5:00 PM – 9:30 PM (Everyday)"
-      },
-      {
-        city: "Needur Branch, Mayiladuthurai, TN",
-        address: "Near Indian Overseas Bank, Main Road, Needur - 609203",
-        mapsLink: "https://maps.app.goo.gl/zE9LDUzpAcBU4KDY9",
-        timing: "10:00 AM – 3:00 PM (Everyday)"
       }
     ],
-
-      location: ["Queens, NY"],
-      availability: ["Mon-Fri, 8:30 AM - 4:30 PM"],
-      specialties: [
-        "Specialist in braces and Invisalign treatments",
-        "Expert in treating complex malocclusions",
-        "Focus on early intervention for children",
-        "Utilizes 3D digital scanning technology",
-        "Provides accelerated orthodontic options"
-      ],
-      achievements: [
-        "Invisalign Diamond Provider",
-        "Certified in lingual braces",
-        "Member of American Association of Orthodontists"
-      ]
+      location: [],
+      availability: [],
+      specialties: [],
+      achievements: []
     },
     {
       id: 5,
-      name: "Ethan Wells",
-      designation: "Pediatric Dentist",
-      image: "/images/dentists/ethan-wells.jpg",
-      slug: "ethan-wells",
-      bio: "Dr. Ethan Wells creates positive dental experiences for children through gentle care and a child-friendly approach. With specialized training in pediatric dentistry, he focuses on preventive care, early intervention, and making dental visits enjoyable for young patients.",
-      experience: "6+ Years",
-      education: "DMD, University of Pennsylvania",
-      email: "ethan.wells@example.com",
-      phone: "(555) 456-7890",
-      location: ["Bronx, NY"],
+      name: "Dr. Patrick",
+      designation: "Dental Implants Specialist - Full Mouth Implants",
+      image: "/images/dentists/default.jpg",
+      slug: "patrick",
+      bio: "Dental implants specialist focusing on full mouth implants.",
+      experience: "",
+      education: "",
+      email: "",
+      phone: "",
       locations: [
       {
         city: "Mayiladuthurai, TN",
         address: "Kenikarai, Thiruvarur Main Road, Mayiladuthurai - 609001",
         timing: "5:00 PM – 9:30 PM (Everyday)"
-      },
-      {
-        city: "Needur Branch, Mayiladuthurai, TN",
-        address: "Near Indian Overseas Bank, Main Road, Needur - 609203",
-        mapsLink: "https://maps.app.goo.gl/zE9LDUzpAcBU4KDY9",
-        timing: "10:00 AM – 3:00 PM (Everyday)"
       }
     ],
-
-      availability: ["Tue-Sat, 9:00 AM - 5:00 PM"],
-      specialties: [
-        "Specializes in children's dental care",
-        "Expert in preventive dentistry and sealants",
-        "Trained in sedation dentistry for children",
-        "Focus on dental development monitoring",
-        "Creates fun, engaging dental experiences"
-      ],
-      achievements: [
-        "Board Certified Pediatric Dentist",
-        "Fellow of American Academy of Pediatric Dentistry",
-        "Certified in pediatric sedation"
-      ]
-    },
-    {
-      id: 6,
-      name: "Amelia Carter",
-      designation: "Chief Dental Surgeon",
-      image: "/images/dentists/amelia-carter.jpg",
-      slug: "amelia-carter",
-      bio: "Dr. Amelia Carter leads our dental team with over 18 years of surgical experience. As Chief Dental Surgeon, she specializes in complex oral surgeries, dental implants, and full-mouth reconstructions. Her leadership and expertise ensure the highest standard of care for all patients.",
-      experience: "18+ Years",
-      education: "DDS, University of Michigan",
-      email: "amelia.carter@example.com",
-      phone: "(555) 567-8901",
-      location: ["Manhattan, NY"],
-      locations: [
-      {
-        city: "Mayiladuthurai, TN",
-        address: "Kenikarai, Thiruvarur Main Road, Mayiladuthurai - 609001",
-        mapsLink: "https://maps.app.goo.gl/CYMPMafdhsE3z7NZ9",
-        timing: "5:00 PM – 9:30 PM (Everyday)"
-      },
-      {
-        city: "Needur Branch, Mayiladuthurai, TN",
-        address: "Near Indian Overseas Bank, Main Road, Needur - 609203",
-        mapsLink: "https://maps.app.goo.gl/zE9LDUzpAcBU4KDY9",
-        timing: "10:00 AM – 3:00 PM (Everyday)"
-      }
-    ],
-
-      availability: ["Mon-Thu, 7:00 AM - 3:00 PM"],
-      specialties: [
-        "Expert in oral and maxillofacial surgery",
-        "Specializes in complex dental implant cases",
-        "Performs wisdom tooth extractions",
-        "Trained in bone grafting and sinus lifts",
-        "Focus on full-mouth rehabilitation"
-      ],
-      achievements: [
-        "Fellow of American College of Oral and Maxillofacial Surgeons",
-        "Clinical Professor at Dental School",
-        "Author of textbook on dental implant surgery"
-      ],
-      featured: true
+      location: [],
+      availability: [],
+      specialties: [],
+      achievements: []
     }
   ]
 }
