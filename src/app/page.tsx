@@ -8,6 +8,7 @@ import WhyChooseUsSection from '@/components/sections/home/homeabout/WhyChooseUs
 import FeaturesSection from '@/components/sections/home/featuresection/FeatureSection'
 import TestimonialsSection from '@/components/sections/home/testimonials/TestimonialsSection'
 import BlogsSection from '@/components/sections/blogs/BlogsSection'
+import YouTubeSection from '@/components/sections/videos/YouTubeSection'
 import AppointmentSection from '@/components/sections/home/appointment/AppointmentSection'
 import FAQSection from '@/components/sections/home/faq/FAQSection'
 import GoogleReviews from "@/components/common-ui/google-reviews/GoogleReviews"
@@ -24,6 +25,7 @@ import { appointmentData } from '@/data/home/appointment'
 import { sampleTestimonials } from '@/data/home/testimonials'
 import { blogsData } from '@/data/blog/blogs'
 import { faqData } from '@/data/home/faq'
+import { youtubeData } from '@/data/home/youtube'
 import { contactData } from '@/data/home/contact'
 import { contactLocations } from '@/data/contact/contact'
 import { subscribeData } from '@/data/home/subscribe'
@@ -45,6 +47,7 @@ const Page = () => {
       <WhyChooseUsSection data={whyChooseUsData} />
       <FeaturesSection data={introductionData} />
       <TestimonialsSection data={sampleTestimonials} />
+      <YouTubeSection data={youtubeData} />
       <AppointmentSection data={appointmentData} />
       <BlogsSection data={blogsData} />
       <FAQSection data={faqData} />

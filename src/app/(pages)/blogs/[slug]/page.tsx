@@ -4,12 +4,11 @@ import { notFound } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
 import { FaCalendar, FaUser, FaClock, FaShareAlt } from "react-icons/fa"
-import { serialize } from "next-mdx-remote/serialize"
 
 import ContentContainer from "@/components/common-ui/containers/ContentContainer"
 
 import { getBlogBySlugRaw, getAllBlogs } from "@/lib/mdx"
-import MDXRenderer from "@/components/mdx/MDXRenderer"
+import { renderMdxToHtml } from "@/lib/mdx-to-html"
 import PageHeading from "@/components/common-ui/headers/PageHeading"
 
 export async function generateStaticParams() {
@@ -30,7 +29,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
   if (!blog) notFound()
 
-  const mdxSource = await serialize(blog.content)
+  const htmlContent = await renderMdxToHtml(blog.content)
 
   const relatedBlogs = (await getAllBlogs())
     .filter(b => b.slug !== slug)
@@ -118,7 +117,10 @@ export default async function BlogDetailPage({ params }: PageProps) {
             </p>
           </div>
 
-          <MDXRenderer source={mdxSource} />
+          <div
+            className="prose-content"
+            dangerouslySetInnerHTML={{ __html: htmlContent }}
+          />
         </div>
       </div>
 
