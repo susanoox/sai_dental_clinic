@@ -8,9 +8,16 @@ export const youtubeData = {
   videos: [
     {
       id: "1",
-      videoId: "",
-      title: "",
-      description: "",
+      videoId: "Em_MDx1h21o",
+      title: "What is a wisdom tooth? | ஞானப்பல் என்றால் என்ன?",
+      description: "Dr. S.K. Srinivas explains what a wisdom tooth is and common issues associated with it.",
+      thumbnail: "",
+    },
+    {
+      id: "2",
+      videoId: "Y1czbTMHv1U",
+      title: "பல் சுத்தம் செய்தால் Gap விழுமா? | 3 Myths & Truths about Scaling",
+      description: "Debunking common myths about dental cleaning and scaling in Tamil by Dr. S.K. Srinivas.",
       thumbnail: "",
     },
   ],
