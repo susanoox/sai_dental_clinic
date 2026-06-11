@@ -30,6 +30,8 @@ import { contactData } from '@/data/home/contact'
 import { contactLocations } from '@/data/contact/contact'
 import { subscribeData } from '@/data/home/subscribe'
 import { featuredServices } from '@/data/service/featuredServices'
+import ConsultationSection from "@/components/sections/consultation/ConsultationSection"
+import { consultationData } from "@/data/consultation/consultation"
 import dynamic from "next/dynamic";
 
 const ChatBotFloat = dynamic(
@@ -40,6 +42,7 @@ const Page = () => {
   return (
 <main className="">
       <HeroSection data={heroSectionData} />
+      <ConsultationSection data={consultationData} />
       <IntroductionSection data={introductionData} />
       <VideoSection src={videoData.videoUrl} poster={videoData.videoPoster} />
       <StatsSection data={statsData} />

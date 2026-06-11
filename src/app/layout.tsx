@@ -26,6 +26,11 @@ const WhatsAppFloat = dynamic(
   { ssr: false }
 );
 
+const ConsultationFloat = dynamic(
+  () => import("@/components/sections/consultation/ConsultationFloat").then((m) => m.ConsultationFloat),
+  { ssr: false }
+);
+
 const noticeImage = "/images/Notice.webp";
 const ACTIVE_NOTICE_KEY = "notice-5th-anniversary-2025";
 const NOTICE_PREVIEW_MODE = true;
@@ -96,6 +101,7 @@ const handleCelebrationClose = () => {
   onClose={() => setShowHiring(false)}
 />
 
+        <ConsultationFloat />
         <div className="fixed bottom-4 right-4 z-[9999] isolate">
           <ChatBotFloat />
         </div>
