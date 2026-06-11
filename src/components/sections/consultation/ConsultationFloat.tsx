@@ -46,7 +46,7 @@ export function ConsultationFloat() {
               </div>
               <div className="flex items-center gap-1 mt-1 text-white/80 text-xs">
                 <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                <span>4.9★ Rated • 3000+ Happy Patients</span>
+                <span>5.0★ Rated • 3000+ Happy Patients</span>
               </div>
             </div>
 
@@ -57,7 +57,7 @@ export function ConsultationFloat() {
                 <Stethoscope className="w-8 h-8 text-blue-600 shrink-0" />
                 <div>
                   <p className="text-xs font-bold text-blue-800">Dr. Srinivas S K</p>
-                  <p className="text-[10px] text-blue-600">BDS, FDS (Endodontics) • 5+ yrs</p>
+                  <p className="text-[10px] text-blue-600">BDS, FDS (Endodontics) • 7+ yrs</p>
                 </div>
               </div>
 

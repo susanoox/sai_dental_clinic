@@ -57,7 +57,7 @@ export const consultationData: ConsultationData = {
   ctaChat: "Chat on WhatsApp",
   ctaBook: "Book Video Call",
   doctorName: "Dr. Srinivas S K",
-  doctorCredentials: "BDS, FDS (Endodontics) • RCT Specialist • 5+ Years Experience",
+  doctorCredentials: "BDS, FDS (Endodontics) • RCT Specialist • 7+ Years Experience",
   doctorDescription:
     "Active member of the Indian Dental Association (IDA). Specializes in root canal treatments, oral prophylaxis, and painless dental extractions. Trusted by thousands of patients for gentle, personalized care.",
   benefits: [
@@ -70,8 +70,8 @@ export const consultationData: ConsultationData = {
   stats: [
     { number: "3000+", label: "Happy Patients", icon: Smile },
     { number: "2000+", label: "Smiles Transformed", icon: Award },
-    { number: "5+", label: "Years Experience", icon: Clock },
-    { number: "4.9★", label: "Google Rating", icon: Star },
+    { number: "7+", label: "Years Experience", icon: Clock },
+    { number: "5.0★", label: "Google Rating", icon: Star },
   ],
   reviewSnippets: [
     {
@@ -99,6 +99,6 @@ export const consultationData: ConsultationData = {
     { icon: BadgeCheck, text: "IDA Member (Indian Dental Association)" },
     { icon: BadgeCheck, text: "BDS & FDS in Endodontics" },
     { icon: BadgeCheck, text: "100% Patient Satisfaction" },
-    { icon: BadgeCheck, text: "20+ Five-Star Google Reviews" },
+    { icon: BadgeCheck, text: "80+ Five-Star Google Reviews" },
   ],
 }

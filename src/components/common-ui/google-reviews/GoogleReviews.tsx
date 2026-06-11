@@ -10,7 +10,7 @@ export default function GoogleReviews() {
       {/* ✅ SAME WIDTH AS CONTACT SECTION */}
       <ContentContainer>
         <h2 className="mb-6 text-xl font-semibold">
-          ⭐ 5.0 · 60 Google Reviews
+          ⭐ 5.0 · 80+ Google Reviews
         </h2>
 
         <div className="relative overflow-x-hidden">

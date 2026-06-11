@@ -20,5 +20,26 @@ export const youtubeData = {
       description: "Debunking common myths about dental cleaning and scaling in Tamil by Dr. S.K. Srinivas.",
       thumbnail: "",
     },
+    {
+      id: "3",
+      videoId: "Idg9_jxYat4",
+      title: "Bleeding Gums During Brushing? | பிரஷ் பண்ணும் போது ரத்தம் வருகிறதா?",
+      description: "Dr. Srinivas explains why gums bleed during brushing and how to treat gingivitis and gum problems.",
+      thumbnail: "",
+    },
+    {
+      id: "4",
+      videoId: "z6pNvm2goOs",
+      title: "Brushing with Lemon & Salt for Teeth Whitening – Fact or Myth?",
+      description: "Is brushing with lemon and salt really effective for teeth whitening? Dr. Srinivas debunks this in Tamil.",
+      thumbnail: "",
+    },
+    {
+      id: "5",
+      videoId: "5IOEjrlUJWs",
+      title: "TMJ Pain Explained in Tamil | Jaw Pain Relief Tips",
+      description: "Dr. Srinivas, Dental Surgeon, explains TMJ pain (jaw pain) and bite correction tips for relief.",
+      thumbnail: "",
+    },
   ],
 }

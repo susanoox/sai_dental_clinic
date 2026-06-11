@@ -43,17 +43,21 @@ export default function VideoSection({
   };
 
   return (
-    <div>
+    <section className="relative py-14 md:py-20 bg-gradient-to-b from-white to-blue-50/50">
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-200/50 to-transparent" />
+      
       <ContentContainer className='items-center justify-center space-y-8'>
         <motion.div
           {...defaultMotion}
           {...motionProps}
-          className={cn("relative w-full rounded-lg overflow-hidden shadow-lg bg-muted")} 
+          className={cn("relative w-full rounded-2xl overflow-hidden shadow-xl bg-gradient-to-b from-gray-900 to-gray-800 p-1.5")}
           whileHover={{ 
             scale: 1.01,
             transition: { duration: 0.2 }
           }}
         >
+          <div className="rounded-xl overflow-hidden bg-black">
           {src && !videoError ? (
             <div className="relative">
               {/* Larger video - removed max-w-4xl constraint */}
@@ -140,6 +144,7 @@ export default function VideoSection({
               </motion.div>
             </div>
           )}
+          </div>{/* end inner dark frame */}
         </motion.div>
 
         <motion.div 
@@ -154,6 +159,6 @@ export default function VideoSection({
           </p>
         </motion.div>
       </ContentContainer>
-    </div>
+    </section>
   );
 }
