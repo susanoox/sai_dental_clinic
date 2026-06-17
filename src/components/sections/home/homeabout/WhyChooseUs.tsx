@@ -61,22 +61,22 @@ const WhyChooseUsSection = ({ data }: WhyChooseUsSectionProps) => {
               </ContentText>
             </motion.div>
 
-            {/* Features list - simple bullet points */}
+            {/* Features list - styled cards */}
             <div className="space-y-3">
               {data.features.map((feature, index) => (
                 <motion.div 
                   key={index} 
                   {...itemMotion}
                   transition={{ ...itemMotion.transition, delay: index * 0.1 }}
-                  className="flex items-center space-x-3"
+                  whileHover={{ x: 4, transition: { duration: 0.2 } }}
+                  className="flex items-center gap-3 bg-white rounded-xl px-4 py-3.5 shadow-sm border border-gray-100 hover:shadow-md hover:border-blue-100 transition-all duration-300"
                 >
-                  {/* Checkbox icon */}
-                  <div className="flex-shrink-0">
-                    <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center">
+                    <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <span className="text-gray-800 font-medium text-lg">
+                  <span className="text-gray-800 font-semibold text-base">
                     {feature.title}
                   </span>
                 </motion.div>

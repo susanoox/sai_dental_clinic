@@ -198,7 +198,7 @@ export default function ConsultationPage() {
             ))}
           </div>
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mt-8">
-            <p className="text-gray-500 text-sm">2000+ smiles transformed • 3000+ happy patients</p>
+            <p className="text-gray-500 text-sm">2000+ smiles transformed • 3000+ happy patients • 5.0★ rated</p>
           </motion.div>
         </ContentContainer>
       </section>
@@ -240,7 +240,7 @@ export default function ConsultationPage() {
             <PageHeading wrapperClassName="items-center" className="text-4xl md:text-5xl text-center">What Patients Say About Dr. Srinivas</PageHeading>
             <div className="flex items-center justify-center gap-2">
               <div className="flex gap-0.5">{[1, 2, 3, 4, 5].map((i) => <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />)}</div>
-              <span className="text-gray-600 font-semibold">4.9★ from 20+ Google Reviews</span>
+              <span className="text-gray-600 font-semibold">5.0★ from 80+ Google Reviews</span>
             </div>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
@@ -323,9 +323,9 @@ export default function ConsultationPage() {
             <p className="text-lg text-blue-100/80">3000+ patients trust us. Start your online consultation today with Dr. Srinivas.</p>
             <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-blue-100/60">
               <span className="flex items-center gap-1"><Shield className="w-4 h-4" />IDA Member</span>
-              <span className="flex items-center gap-1"><Award className="w-4 h-4" />5+ Years</span>
+              <span className="flex items-center gap-1"><Award className="w-4 h-4" />7+ Years</span>
               <span className="flex items-center gap-1"><Smile className="w-4 h-4" />3000+ Patients</span>
-              <span className="flex items-center gap-1"><Star className="w-4 h-4" />4.9★ Rated</span>
+              <span className="flex items-center gap-1"><Star className="w-4 h-4" />5.0★ Rated</span>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
               <Button size="lg" onClick={() => handleWhatsApp("Hi! I'd like to consult about my dental concern.")}
