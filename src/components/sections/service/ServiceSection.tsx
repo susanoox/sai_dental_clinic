@@ -1,9 +1,10 @@
+"use client"
+
 import ContentContainer from '@/components/common-ui/containers/ContentContainer'
 import ContentText from '@/components/common-ui/contentText/ContentText'
 import SectionTitleText from '@/components/common-ui/contentText/SectionTitleText'
 import PageHeading from '@/components/common-ui/headers/PageHeading'
 import React from 'react'
-import HeroActions from '../home/heroSection/HeroActions'
 import { ServiceData } from '@/data/service/service'
 import ServiceCard from './ServiceCard'
 import { MotionProps } from 'framer-motion'

@@ -1,5 +1,3 @@
-import FeatureChecklist from "@/components/sections/service/FeatureChecklist";
-
 export interface ServiceCard {
     icon: string;
     title: string;
