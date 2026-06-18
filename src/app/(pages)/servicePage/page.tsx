@@ -1,10 +1,8 @@
-import ContactSection from "@/components/common-ui/contactForm/ContactSection"
+"use client"
+
 import ServiceSection from "@/components/sections/service/ServiceSection"
-import SubscribeSection from "@/components/sections/subscribe/SubscribeSection"
 import ClinicGalleryPreview from "@/components/sections/gallery/ClinicGalleryPreview"
-import { contactLocations } from "@/data/contact/contact"
 import { serviceData } from "@/data/service/service"
-import { subscribeData } from "@/data/home/subscribe"
 import { clinicGallery } from "@/data/gallery/clinicGallery"
 
 export default function ServicePage() {
